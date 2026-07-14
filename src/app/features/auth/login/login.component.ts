@@ -45,9 +45,9 @@ export class LoginComponent {
         console.log(user);
 
         if (user.role === 'admin') {
-            console.log('admin');
+            alert('Admin Logged In');
         } else {
-            console.log('owner');
+            alert('Owner Logged In');
         }
     }
 }
