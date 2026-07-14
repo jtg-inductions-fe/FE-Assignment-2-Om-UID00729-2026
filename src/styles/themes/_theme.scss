@@ -9,6 +9,7 @@ $primary-theme: mat.define-light-theme(
     (
         color: (
             primary: $primary,
+            accent: $primary,
             warn: $warn,
         ),
         typography: typo.$typography,
