@@ -1,0 +1,73 @@
+@use './variables' as v;
+
+/// Defines a font face for given name
+/// @param {string} font-family - Name of the font
+/// @return @font-face
+@mixin font-face($font-family) {
+    $styles: map-get(v.$fonts, $font-family);
+
+    @each $style, $font in $styles {
+        @font-face {
+            font-family: '#{$font-family}';
+            src:
+                url('#{v.$font-path}#{map-get($font, file-name)}.woff2'),
+                url('#{v.$font-path}#{map-get($font, file-name)}.woff');
+            font-weight: map-get($font, font-weight);
+            font-display: swap;
+            font-style: normal;
+        }
+    }
+}
+
+/// Sets up a flex layout
+/// @param {string} justify - For justify-content value
+/// @param {string} align - For align-items value
+/// @param {string} dir - For flex-direction value
+/// @return flex according to parameters given
+///
+/// Example usage
+/// body{
+///     @include flex-set(center, center, column)
+/// }
+///
+/// Compiled CSS
+/// body{
+///     display:flex;
+///     align-items:center;
+///     justify-content:center;
+///     flex-direction:column;
+/// }
+///
+@mixin flex-set($justify: center, $align: center, $direction: row) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
+
+/// Set a mixin for media queries
+/// @param {string} breakpoint - name of breakpoint (desktop or tablet)
+/// @return media query for given param
+///
+/// Example usage
+/// body{
+///     @include respond(desktop){
+///         border:2px solid black;
+///     }
+/// }
+///
+/// Compiled CSS
+/// @media (min-width:1024px){
+///     body{
+///         border:2px solid black;
+///     }
+/// }
+///
+@mixin respond($breakpoint) {
+    @if not map-has-key(v.$breakpoints, $breakpoint) {
+        @error "Invalid Breakpoint.";
+    }
+    @media #{inspect(map-get(v.$breakpoints, $breakpoint))} {
+        @content;
+    }
+}
