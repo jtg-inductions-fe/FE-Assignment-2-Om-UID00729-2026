@@ -30,13 +30,13 @@ $fonts: (
 );
 
 $breakpoints: (
-    'mobile': (
-        min-width: 320px,
-    ),
     'tablet': (
         min-width: 768px,
     ),
     'desktop-sm': (
         min-width: 1024px,
+    ),
+    'desktop-lg': (
+        min-width: 1440px,
     ),
 );
