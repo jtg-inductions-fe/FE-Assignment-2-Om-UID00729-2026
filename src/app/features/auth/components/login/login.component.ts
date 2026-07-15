@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@core/service/auth/auth.service';
 import { SnackbarService } from '@core/service/snackbar/snackbar.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -11,6 +12,7 @@ import { SnackbarService } from '@core/service/snackbar/snackbar.service';
 export class LoginComponent {
     authService = inject(AuthService);
     snackbar = inject(SnackbarService);
+    router = inject(Router);
     hidePassword = true;
 
     loginForm = new FormGroup({
@@ -39,7 +41,7 @@ export class LoginComponent {
             return;
         }
 
-        this.snackbar.showSuccess('Logged in Successfully');
+       this.snackbar.showSuccess('Logged in Successfully');
     }
 
     getEmailError(): string {

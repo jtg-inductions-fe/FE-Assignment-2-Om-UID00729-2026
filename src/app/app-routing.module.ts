@@ -14,6 +14,10 @@ const routes: Routes = [
                 (module) => module.AuthModule,
             ),
     },
+    {
+        path: 'dashboard',
+        redirectTo: '/dashboard',
+    },
 ];
 
 @NgModule({

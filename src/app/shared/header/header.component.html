@@ -1,0 +1,26 @@
+<mat-toolbar class="header">
+    <a routerLink="/" class="logo-container">
+        <img src="assets/favicon.svg" alt="Company Logo" />
+    </a>
+
+    <button
+        *ngIf="authservice.currUser$ | async as user"
+        mat-icon-button
+        [matMenuTriggerFor]="profileMenu"
+        [matMenuTriggerData]="{ currentUser: user }"
+        aria-label="User profile menu"
+        class="header__profile-btn"
+    >
+        <img
+            src="assets/images/profile-placeholder-1.webp"
+            alt="Company Logo"
+            class="header__profile-img"
+        />
+    </button>
+
+    <mat-menu #profileMenu="matMenu">
+        <ng-template matMenuContent let-user="currentUser">
+            <p>ID: {{ user.id }}</p>
+        </ng-template>
+    </mat-menu>
+</mat-toolbar>

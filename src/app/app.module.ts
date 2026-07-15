@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         AppRoutingModule,
         BrowserAnimationsModule,
         MatSnackBarModule,
+        SharedModule,
     ],
     bootstrap: [AppComponent],
 })

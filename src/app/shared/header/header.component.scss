@@ -1,0 +1,19 @@
+@use 'abstracts/mixins' as m;
+
+.header {
+    background-color: white;
+    border-bottom: 1px solid #0000001f;
+
+    @include m.flex-set(space-between);
+
+    &__profile-btn {
+        border-radius: 50%;
+        padding: 0;
+    }
+
+    &__profile-img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+    }
+}
