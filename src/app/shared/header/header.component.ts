@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@core/service/auth.service';
 
 @Component({
@@ -8,4 +9,11 @@ import { AuthService } from '@core/service/auth.service';
 })
 export class HeaderComponent {
     authservice = inject(AuthService);
+    router = inject(Router);
+    showMenu = false;
+
+    logout() {
+        this.authservice.logout();
+        this.router.navigate(['/auth/login']);
+    }
 }

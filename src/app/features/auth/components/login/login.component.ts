@@ -41,7 +41,8 @@ export class LoginComponent {
             return;
         }
 
-       this.snackbar.showSuccess('Logged in Successfully');
+        this.snackbar.showSuccess('Logged in Successfully');
+        this.router.navigate(['/dashboard']);
     }
 
     getEmailError(): string {

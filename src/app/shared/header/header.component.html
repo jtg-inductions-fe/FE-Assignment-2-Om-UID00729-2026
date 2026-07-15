@@ -3,24 +3,28 @@
         <img src="assets/favicon.svg" alt="Company Logo" />
     </a>
 
-    <button
-        *ngIf="authservice.currUser$ | async as user"
-        mat-icon-button
-        [matMenuTriggerFor]="profileMenu"
-        [matMenuTriggerData]="{ currentUser: user }"
-        aria-label="User profile menu"
-        class="header__profile-btn"
-    >
-        <img
-            src="assets/images/profile-placeholder-1.webp"
-            alt="Company Logo"
-            class="header__profile-img"
-        />
-    </button>
+    <ng-container *ngIf="authservice.currUser$ | async as user">
+        <button
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="User profile menu"
+            class="header__profile-btn"
+        >
+            <img
+                src="{{ user.profileImg }}"
+                alt="Company Logo"
+                class="header__profile-img"
+            />
+        </button>
 
-    <mat-menu #profileMenu="matMenu">
-        <ng-template matMenuContent let-user="currentUser">
-            <p>ID: {{ user.id }}</p>
-        </ng-template>
-    </mat-menu>
+        <mat-menu #menu="matMenu">
+            <div class="mat-body-1 header__menu-email">{{ user.email }}</div>
+            <mat-divider></mat-divider>
+            <app-button
+                label="LOGOUT"
+                class="header__menu-btn"
+                (click)="logout()"
+            ></app-button>
+        </mat-menu>
+    </ng-container>
 </mat-toolbar>

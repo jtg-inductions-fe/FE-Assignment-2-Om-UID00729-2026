@@ -10,6 +10,14 @@ export class AuthService {
     private userSubject = new BehaviorSubject<authModel | null>(null);
     currUser$ = this.userSubject.asObservable();
 
+    constructor() {
+        const user = localStorage.getItem('LOGGED_USER');
+
+        if (user) {
+            this.userSubject.next(JSON.parse(user));
+        }
+    }
+
     login(email: string, password: string): authModel | null {
         const loggedUser = mockUsers.find(
             (user) => user.email === email && user.password === password,
@@ -37,5 +45,9 @@ export class AuthService {
     logout() {
         this.userSubject.next(null);
         localStorage.removeItem('LOGGED_USER');
+    }
+
+    isloggedIn(): boolean {
+        return this.userSubject.value !== null;
     }
 }

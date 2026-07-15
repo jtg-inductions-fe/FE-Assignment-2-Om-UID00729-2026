@@ -1,8 +1,10 @@
 @use 'abstracts/mixins' as m;
+@use 'abstracts/functions' as fun;
 
 .header {
     background-color: white;
     border-bottom: 1px solid #0000001f;
+    position: relative;
 
     @include m.flex-set(space-between);
 
@@ -15,5 +17,9 @@
         border-radius: 50%;
         width: 100%;
         height: 100%;
+    }
+
+    &__menu-email {
+        padding: fun.to-rem(20px);
     }
 }

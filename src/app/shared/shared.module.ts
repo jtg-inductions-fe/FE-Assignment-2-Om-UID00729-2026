@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './header/header.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
     declarations: [ButtonComponent, HeaderComponent],
@@ -15,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
         MatToolbarModule,
         MatMenuModule,
         MatIconModule,
+        MatDividerModule,
     ],
     exports: [ButtonComponent, HeaderComponent],
 })
