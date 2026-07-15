@@ -54,14 +54,11 @@
             </mat-error>
         </mat-form-field>
 
-        <button
-            mat-raised-button
-            color="primary"
+        <app-button
+            label="LOGIN"
+            [disabled]="loginForm.invalid"
             type="submit"
             class="login__form-item"
-            [disabled]="loginForm.invalid"
-        >
-            LOGIN
-        </button>
+        ></app-button>
     </form>
 </mat-card>
