@@ -12,10 +12,9 @@ $primary-theme: mat.define-light-theme(
             accent: $primary,
             warn: $warn,
         ),
-        typography: typo.$typography,
     )
 );
 
-@include mat.core();
+@include mat.core;
 @include mat.all-component-themes($primary-theme);
 @include mat.all-component-typographies(typo.$typography);

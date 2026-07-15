@@ -1,5 +1,5 @@
-import { CanActivateFn } from '@angular/router';
+import { CanDeactivateFn } from '@angular/router';
 
-export const unsavedChangesGuard: CanActivateFn = () => {
+export const unsavedChangesGuard: CanDeactivateFn<unknown> = () => {
     return true;
 };
