@@ -18,13 +18,34 @@
         </button>
 
         <mat-menu #menu="matMenu">
-            <div class="mat-body-1 header__menu-email">{{ user.email }}</div>
-            <mat-divider></mat-divider>
-            <app-button
-                label="LOGOUT"
-                class="header__menu-btn"
-                (click)="logout()"
-            ></app-button>
+            <div class="header__menu-container">
+                <img
+                    src="{{ user.profileImg }}"
+                    alt="Company Logo"
+                    class="header__menu-img"
+                />
+                <div class="header__menu-details">
+                    <p class="mat-headline-5">
+                        Name:
+                        <span class="mat-subtitle-1">{{ user.name }}</span>
+                    </p>
+                    <p class="mat-headline-5">
+                        Email:
+                        <span class="mat-subtitle-1">{{ user.email }}</span>
+                    </p>
+                    <p class="mat-headline-5">
+                        Role:
+                        <span class="mat-subtitle-1">{{ user.role }}</span>
+                    </p>
+                </div>
+
+                <mat-divider></mat-divider>
+                <app-button
+                    label="LOGOUT"
+                    class="header__menu-btn"
+                    (click)="logout()"
+                ></app-button>
+            </div>
         </mat-menu>
     </ng-container>
 </mat-toolbar>

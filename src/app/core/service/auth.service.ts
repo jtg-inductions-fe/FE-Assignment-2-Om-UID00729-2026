@@ -36,6 +36,7 @@ export class AuthService {
                 email: loggedUser.email,
                 role: loggedUser.role,
                 profileImg: loggedUser.profileImg,
+                name: loggedUser.name,
             }),
         );
 

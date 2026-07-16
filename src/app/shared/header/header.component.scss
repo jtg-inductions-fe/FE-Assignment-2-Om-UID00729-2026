@@ -19,7 +19,21 @@
         height: 100%;
     }
 
-    &__menu-email {
-        padding: fun.to-rem(20px);
+    &__menu-container {
+        padding: 10px;
+        gap: 10px;
+
+        @include m.flex-set(center, center, column);
+    }
+
+    &__menu-img {
+        width: 50%;
+        border-radius: 50%;
+    }
+
+    &__menu-details {
+        gap: 10px;
+
+        @include m.flex-set(center, start, column);
     }
 }
