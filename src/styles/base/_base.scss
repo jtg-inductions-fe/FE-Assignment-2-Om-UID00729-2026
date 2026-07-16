@@ -1,20 +1,11 @@
-@use '../abstracts/colors' as col;
+@use '../abstracts/mixins' as m;
 
-.mat-headline-1,
-.mat-headline-2,
-.mat-headline-3,
-.mat-headline-4,
-.mat-headline-5,
-.mat-headline-6 {
-    color: col.$primary-font-col;
-    margin: 0;
+@include m.font-face(inter);
+
+.line-clamp-1 {
+    @include m.line-clamp(1);
 }
 
-.mat-subtitle-1,
-.mat-subtitle-2,
-.mat-body-1,
-.mat-body-2,
-.mat-caption {
-    color: col.$secondary-font-col;
-    margin: 0;
+.line-clamp-2 {
+    @include m.line-clamp(2);
 }

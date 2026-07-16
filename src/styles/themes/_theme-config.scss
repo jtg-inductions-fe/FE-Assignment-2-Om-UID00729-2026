@@ -1,8 +1,8 @@
-@use '../abstracts/colors' as c;
-@use '../base/typography' as typo;
 @use '@angular/material' as mat;
+@use './colors' as col;
+@use './typography' as typo;
 
-$primary: mat.define-palette(c.$primary-palette, 600);
+$primary: mat.define-palette(col.$primary-palette, 600);
 $warn: mat.define-palette(mat.$red-palette);
 
 $primary-theme: mat.define-light-theme(
