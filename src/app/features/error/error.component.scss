@@ -1,0 +1,25 @@
+@use 'abstracts/mixins' as m;
+@use 'abstracts/functions' as fun;
+
+.error {
+    height: auto;
+
+    &__img-wrapper {
+        @include m.flex-set(center, center, column);
+    }
+
+    &__img {
+        width: 40%;
+    }
+
+    &__text {
+        text-align: center;
+        gap: fun.to-rem(20px);
+
+        @include m.flex-set(center, center, column);
+    }
+
+    &__btn {
+        width: fun.to-rem(131px);
+    }
+}
