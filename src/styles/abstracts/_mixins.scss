@@ -1,17 +1,17 @@
-@use './variables' as v;
+@use './variables' as vars;
 
 /// Defines a font face for given name
 /// @param {string} font-family - Name of the font
 /// @return @font-face
 @mixin font-face($font-family) {
-    $styles: map-get(v.$fonts, $font-family);
+    $styles: map-get(vars.$fonts, $font-family);
 
     @each $style, $font in $styles {
         @font-face {
             font-family: '#{$font-family}';
             src:
-                url('#{v.$font-path}#{map-get($font, file-name)}.woff2'),
-                url('#{v.$font-path}#{map-get($font, file-name)}.woff');
+                url('#{vars.$font-path}#{map-get($font, file-name)}.woff2'),
+                url('#{vars.$font-path}#{map-get($font, file-name)}.woff');
             font-weight: map-get($font, font-weight);
             font-display: swap;
             font-style: normal;
@@ -64,10 +64,10 @@
 /// }
 ///
 @mixin respond($breakpoint) {
-    @if not map-has-key(v.$breakpoints, $breakpoint) {
+    @if not map-has-key(vars.$breakpoints, $breakpoint) {
         @error "Invalid Breakpoint.";
     }
-    @media #{inspect(map-get(v.$breakpoints, $breakpoint))} {
+    @media #{inspect(map-get(vars.$breakpoints, $breakpoint))} {
         @content;
     }
 }

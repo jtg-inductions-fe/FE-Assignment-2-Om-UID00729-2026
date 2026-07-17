@@ -1,11 +1,11 @@
-@use '../abstracts/mixins' as m;
+@use '../abstracts/mixins' as mixin;
 
-@include m.font-face(inter);
+@include mixin.font-face(inter);
 
 .line-clamp-1 {
-    @include m.line-clamp(1);
+    @include mixin.line-clamp(1);
 }
 
 .line-clamp-2 {
-    @include m.line-clamp(2);
+    @include mixin.line-clamp(2);
 }

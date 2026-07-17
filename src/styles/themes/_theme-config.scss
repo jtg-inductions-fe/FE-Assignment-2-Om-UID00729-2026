@@ -1,8 +1,8 @@
 @use '@angular/material' as mat;
-@use './colors' as col;
+@use './pallete' as pallete;
 @use './typography' as typo;
 
-$primary: mat.define-palette(col.$primary-palette, 600);
+$primary: mat.define-palette(pallete.$primary-palette, 600);
 $warn: mat.define-palette(mat.$red-palette);
 
 $primary-theme: mat.define-light-theme(
@@ -16,5 +16,7 @@ $primary-theme: mat.define-light-theme(
 );
 
 @include mat.core;
-@include mat.all-component-themes($primary-theme);
+@include mat.core-theme($primary-theme);
+@include mat.button-theme($primary-theme);
+@include mat.progress-spinner-theme($primary-theme);
 @include mat.all-component-typographies(typo.$typography);

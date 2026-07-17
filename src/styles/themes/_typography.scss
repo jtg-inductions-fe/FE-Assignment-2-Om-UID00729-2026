@@ -1,9 +1,9 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/functions' as fn;
-@use './colors' as col;
+@use '../abstracts/variables' as vars;
+@use '../abstracts/functions' as func;
 @use '@angular/material' as mat;
 
-/// mat.define-typography-level(
+/// Structue to define new typography level
+/// $variable: mat.define-typography-level(
 ///     $font-size,
 ///     $line-height,
 ///     $font-weight,
@@ -11,74 +11,74 @@
 
 //For Main Headings
 $headline-1: mat.define-typography-level(
-    fn.to-rem(v.$size-2xl),
-    fn.to-rem(62.5px),
-    v.$bold
+    func.to-rem(vars.$size-2xl),
+    func.to-rem(62.5px),
+    vars.$bold
 );
 // For Card Container Headings
 $headline-2: mat.define-typography-level(
-    fn.to-rem(v.$size-md),
-    fn.to-rem(30px),
-    v.$semi-bold
+    func.to-rem(vars.$size-md),
+    func.to-rem(30px),
+    vars.$semi-bold
 );
 // For Stat cards/ Login Heading
 $headline-3: mat.define-typography-level(
-    fn.to-rem(v.$size-md),
-    fn.to-rem(30px),
-    v.$bold
+    func.to-rem(vars.$size-md),
+    func.to-rem(30px),
+    vars.$bold
 );
 // For Sidebars
 $headline-4: mat.define-typography-level(
-    fn.to-rem(v.$size-xs),
-    fn.to-rem(v.$size-lg),
-    v.$regular
+    func.to-rem(vars.$size-xs),
+    func.to-rem(vars.$size-lg),
+    vars.$regular
 );
 // For Table Main column
 $headline-5: mat.define-typography-level(
-    fn.to-rem(v.$size-xs),
-    fn.to-rem(v.$size-lg),
-    v.$bold
+    func.to-rem(vars.$size-xs),
+    func.to-rem(vars.$size-lg),
+    vars.$bold
 );
 // For Card Headings
 $headline-6: mat.define-typography-level(
-    fn.to-rem(v.$size-xs),
-    fn.to-rem(v.$size-lg),
-    v.$semi-bold
+    func.to-rem(vars.$size-xs),
+    func.to-rem(vars.$size-lg),
+    vars.$semi-bold
 );
 // For Card Headings
 $subtitle-1: mat.define-typography-level(
-    fn.to-rem(14px),
-    fn.to-rem(v.$size-md),
-    v.$regular
+    func.to-rem(14px),
+    func.to-rem(vars.$size-md),
+    vars.$regular
 );
 // For Card Subtitles
 $subtitle-2: mat.define-typography-level(
-    fn.to-rem(12px),
-    fn.to-rem(v.$size-sm),
-    v.$regular
+    func.to-rem(12px),
+    func.to-rem(vars.$size-sm),
+    vars.$regular
 );
 // For Stat card body
 $body-1: mat.define-typography-level(
-    fn.to-rem(12px),
-    fn.to-rem(v.$size-sm),
-    v.$semi-bold
+    func.to-rem(12px),
+    func.to-rem(vars.$size-sm),
+    vars.$semi-bold
 );
 // For Table Headings
 $body-2: mat.define-typography-level(
-    fn.to-rem(12px),
-    fn.to-rem(v.$size-sm),
-    v.$bold
+    func.to-rem(12px),
+    func.to-rem(vars.$size-sm),
+    vars.$bold
 );
 // For Table Headings
 $caption: mat.define-typography-level(
-    fn.to-rem(13px),
-    fn.to-rem(v.$size-sm),
-    v.$semi-bold
+    func.to-rem(13px),
+    func.to-rem(vars.$size-sm),
+    vars.$semi-bold
 );
 $button: mat.define-typography-level(
-    fn.to-rem(14px),
-    fn.to-rem(21px),
-    v.$semi-bold
+    func.to-rem(14px),
+    func.to-rem(21px),
+    vars.$semi-bold
 );
 
 $typography: mat.define-typography-config(
