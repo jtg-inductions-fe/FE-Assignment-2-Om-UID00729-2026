@@ -2,8 +2,7 @@
 @use 'abstracts/functions' as v;
 
 :host {
-    width: 100%;
-    height: 100%;
+    height: 100vh;
 
     @include m.flex-set;
 }
