@@ -1,0 +1,13 @@
+@use 'abstracts/mixins' as m;
+
+.main-layout {
+    height: 100vh;
+    width: 100vw;
+
+    @include m.flex-set(center, normal, column);
+
+    &__content {
+        flex: 1;
+        height: 100%;
+    }
+}

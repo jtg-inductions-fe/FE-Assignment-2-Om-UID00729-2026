@@ -1,0 +1,9 @@
+<div class="main-layout">
+    <nav>
+        <app-header (sidebartoggle)="handleHamburgerClick($event)"></app-header>
+    </nav>
+
+    <main class="main-layout__content">
+        <app-sidebar [isSidebarOpen]="isdesktop || isSideBarOpen"></app-sidebar>
+    </main>
+</div>
