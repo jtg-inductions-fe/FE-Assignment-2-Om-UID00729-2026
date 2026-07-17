@@ -1,0 +1,16 @@
+<mat-drawer-container class="sidebar" autosize>
+    <mat-drawer
+        #drawer
+        class="sidebar__drawer"
+        mode="side"
+        opened="true"
+        *ngIf="isSidebarOpen"
+    >
+        <p>Auto-resizing sidenav</p>
+        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+    </mat-drawer>
+
+    <div class="sidebar__content">
+        <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>
