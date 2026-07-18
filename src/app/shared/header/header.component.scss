@@ -1,15 +1,15 @@
-@use 'abstracts/mixins' as m;
-@use 'abstracts/functions' as fun;
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
 
 .header {
     background-color: white;
     border-bottom: 1px solid #0000001f;
-    position: relative;
+    padding-block: func.to-rem(5px);
 
-    @include m.flex-set(space-between);
+    @include mixin.flex-set(space-between);
 
     &__hamburger {
-        @include m.flex-set;
+        display: block;
     }
 
     &__logo {
@@ -28,10 +28,10 @@
     }
 
     &__menu-container {
-        padding: 10px;
-        gap: 10px;
+        padding: func.to-rem(10px);
+        gap: func.to-rem(10px);
 
-        @include m.flex-set(center, center, column);
+        @include mixin.flex-set(center, center, column);
     }
 
     &__menu-img {
@@ -40,12 +40,12 @@
     }
 
     &__menu-details {
-        gap: 10px;
+        gap: to-rem(10px);
 
-        @include m.flex-set(center, start, column);
+        @include mixin.flex-set(center, start, column);
     }
 
-    @include m.respond(tablet) {
+    @include mixin.respond(tablet) {
         &__hamburger {
             display: none;
         }
