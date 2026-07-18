@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/service/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/core/service/auth/auth.service';
+import { SnackbarService } from '@core/service/snackbar/snackbar.service';
 
 @Component({
     selector: 'app-login',
@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent {
     authService = inject(AuthService);
-    snackbar = inject(MatSnackBar);
+    snackbar = inject(SnackbarService);
     hidePassword = true;
 
     loginForm = new FormGroup({
@@ -34,20 +34,11 @@ export class LoginComponent {
         const user = this.authService.login(email, password);
 
         if (!user) {
-            this.snackbar.open(
-                'Invalid Credentials. Please try again',
-                'Close',
-            );
+            this.snackbar.showError('Invalid Credentials. Please try again');
             this.loginForm.reset();
             return;
         }
 
-        console.log(user);
-
-        if (user.role === 'admin') {
-            alert('Admin Logged In');
-        } else {
-            alert('Owner Logged In');
-        }
+        this.snackbar.showSuccess('Logged in Successfully');
     }
 }

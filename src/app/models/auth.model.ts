@@ -3,5 +3,5 @@ export interface authModel {
     email: string;
     password: string;
     role: 'admin' | 'owner';
-    profileImg: string;
+    profileImg?: string;
 }

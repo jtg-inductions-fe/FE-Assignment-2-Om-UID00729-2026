@@ -1,4 +1,4 @@
-import { authModel } from 'src/app/models/auth.model';
+import { authModel } from '@models/auth.model';
 
 export const mockUsers: authModel[] = [
     {

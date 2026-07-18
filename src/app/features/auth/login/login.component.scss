@@ -19,7 +19,7 @@
     }
 
     &__form {
-        gap: 10px;
+        gap: to-rem(10px);
 
         @include m.flex-set(center, center, column);
     }
@@ -29,10 +29,10 @@
     }
 
     @include m.respond(tablet) {
-        width: 35%;
+        flex: 0.35;
     }
 
     @include m.respond(desktop-lg) {
-        width: 25%;
+        flex: 0.25;
     }
 }
