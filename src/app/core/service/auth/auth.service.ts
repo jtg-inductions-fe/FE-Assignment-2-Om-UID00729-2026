@@ -41,4 +41,8 @@ export class AuthService {
         this.userSubject.next(null);
         this.localStorageService.remove(LOCAL_STORAGE_KEYS.LOGGED_IN_USER);
     }
+
+    isloggedIn(): boolean {
+        return this.userSubject.value !== null;
+    }
 }
