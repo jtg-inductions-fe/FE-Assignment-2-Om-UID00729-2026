@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as vars;
-@use '../abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+@use 'abstracts/functions' as func;
 @use '@angular/material' as mat;
 
 /// Structue to define new typography level
