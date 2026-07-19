@@ -2,5 +2,7 @@ export interface sideBarModel {
     label: string;
     routeTo?: string;
     children?: sideBarModel[];
-    role?: string;
+    role?: ('admin' | 'owner')[];
+    icon?: string;
+    common: boolean;
 }
