@@ -1,9 +1,10 @@
 @use 'abstracts/mixins' as mixin;
 @use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
 
 .header {
-    background-color: white;
-    border-bottom: 1px solid #0000001f;
+    background-color: vars.$background;
+    border-bottom: vars.$border-light;
     padding-block: func.to-rem(5px);
 
     @include mixin.flex-set(space-between);
@@ -26,6 +27,7 @@
     &__menu-container {
         padding: func.to-rem(10px);
         gap: func.to-rem(10px);
+        background-color: vars.$background;
 
         @include mixin.flex-set(center, center, column);
     }
@@ -41,7 +43,7 @@
         @include mixin.flex-set(center, flex-start, column);
     }
 
-    @include mixin.respond(tablet) {
+    @include mixin.respond(desktop-sm) {
         &__hamburger {
             display: none;
         }
