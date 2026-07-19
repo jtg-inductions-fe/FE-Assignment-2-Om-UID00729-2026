@@ -29,6 +29,7 @@ export class AuthService {
 
         this.localStorageService.set(LOCAL_STORAGE_KEYS.LOGGED_IN_USER, {
             id: loggedInUser.id,
+            name: loggedInUser.name,
             email: loggedInUser.email,
             role: loggedInUser.role,
             profileImg: loggedInUser.profileImg,
