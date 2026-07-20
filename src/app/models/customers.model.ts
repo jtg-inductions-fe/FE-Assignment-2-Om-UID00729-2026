@@ -1,6 +1,6 @@
 export interface customersModel {
     name: string;
     email: string;
-    totalAmount: string;
+    totalAmount: number;
     profileImg?: string;
 }
