@@ -1,1 +1,10 @@
-<p>dashboard works!</p>
+<app-heading
+    [heading]="'Overview Dashboard'"
+    [subHeading]="'System administrator overview panel. Impersonate owners or view aggregate metrics.'"
+></app-heading>
+<app-stat-card
+    [label]="'Total Revenue'"
+    [value]="'$200'"
+    [icon]="'attach_money'"
+></app-stat-card>
+<app-card-container></app-card-container>
