@@ -37,20 +37,19 @@
                 autocomplete="on"
             />
 
-            <button
+            <app-button
+                [variant]="'icon'"
                 type="button"
                 mat-icon-button
                 matSuffix
+                [iconLabel]="hidePassword ? 'visibility_off' : 'visibility'"
                 (click)="hidePassword = !hidePassword"
                 [attr.aria-label]="
                     hidePassword ? 'Show password' : 'Hide password'
                 "
                 [attr.aria-pressed]="hidePassword"
             >
-                <mat-icon>{{
-                    hidePassword ? 'visibility_off' : 'visibility'
-                }}</mat-icon>
-            </button>
+            </app-button>
 
             <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
                 Password is required
@@ -69,8 +68,9 @@
         <app-button
             label="LOGIN"
             [disabled]="loginForm.invalid"
-            type="submit"
+            [type]="'submit'"
             class="login__form-item"
-        ></app-button>
+        >
+        </app-button>
     </form>
 </mat-card>

@@ -1,38 +1,76 @@
 <ng-container [ngSwitch]="variant">
     <button
+        class="button"
         *ngSwitchCase="'flat'"
         mat-flat-button
         [color]="color"
         [disabled]="disabled"
         [type]="type"
     >
-        {{ label }}
+        <div class="button__container">
+            <mat-icon *ngIf="iconLabel" class="button__icon">{{
+                iconLabel
+            }}</mat-icon
+            >{{ label }}
+        </div>
     </button>
     <button
+        class="button"
         *ngSwitchCase="'stroked'"
         mat-stroked-button
         [color]="color"
         [disabled]="disabled"
         [type]="type"
     >
-        {{ label }}
+        <div class="button__container">
+            <mat-icon *ngIf="iconLabel" class="button__icon">{{
+                iconLabel
+            }}</mat-icon>
+            {{ label }}
+        </div>
     </button>
     <button
+        class="button"
+        *ngSwitchCase="'icon'"
+        mat-icon-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+    >
+        <div class="button__container">
+            <mat-icon *ngIf="iconLabel" class="button__icon">{{
+                iconLabel
+            }}</mat-icon>
+        </div>
+    </button>
+    <button
+        class="button"
         *ngSwitchCase="'basic'"
         mat-button
         [color]="color"
         [disabled]="disabled"
         [type]="type"
     >
-        {{ label }}
+        <div class="button__container">
+            <mat-icon *ngIf="iconLabel" class="button__icon">{{
+                iconLabel
+            }}</mat-icon>
+            {{ label }}
+        </div>
     </button>
     <button
+        class="button"
         *ngSwitchDefault
         mat-raised-button
         [color]="color"
         [disabled]="disabled"
         [type]="type"
     >
-        {{ label }}
+        <div class="button__container">
+            <mat-icon *ngIf="iconLabel" class="button__icon">{{
+                iconLabel
+            }}</mat-icon>
+            {{ label }}
+        </div>
     </button>
 </ng-container>
