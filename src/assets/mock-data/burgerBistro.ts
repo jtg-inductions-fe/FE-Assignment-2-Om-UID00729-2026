@@ -6,37 +6,37 @@ export const burgerBistroCustomers: customersModel[] = [
     {
         name: 'Lana Bryd',
         email: 'lanabryd@demo.com',
-        totalAmount: '$42',
+        totalAmount: 42,
         profileImg: 'assets/images/profile-placeholder-1.webp',
     },
     {
         name: 'Karen Nelson',
         email: 'karennelson@demo.com',
-        totalAmount: '$58',
+        totalAmount: 58,
         profileImg: 'assets/images/profile-placeholder-2.webp',
     },
     {
         name: 'Stephen',
         email: 'stephen@demo.com',
-        totalAmount: '$32',
+        totalAmount: 32,
         profileImg: 'assets/images/profile-placeholder-3.webp',
     },
     {
         name: 'Bruce Banner',
         email: 'brucebanner@demo.com',
-        totalAmount: '$15',
+        totalAmount: 15,
         profileImg: 'assets/images/profile-placeholder-4.webp',
     },
     {
         name: 'Laufey',
         email: 'laufey@demo.com',
-        totalAmount: '$10',
+        totalAmount: 10,
         profileImg: 'assets/images/profile-placeholder-5.webp',
     },
     {
         name: 'Kratos',
         email: 'kratos@demo.com',
-        totalAmount: '$29',
+        totalAmount: 29,
         profileImg: 'assets/images/profile-placeholder-1.webp',
     },
 ];

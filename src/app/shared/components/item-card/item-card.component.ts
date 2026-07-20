@@ -9,5 +9,5 @@ export class ItemCardComponent {
     @Input() label = '';
     @Input() subtitle = '';
     @Input() imageUrl = '';
-    @Input() value = '';
+    @Input() value: string | undefined = '';
 }
