@@ -2,7 +2,10 @@
     <app-heading
         [heading]="'Overview Dashboard'"
         [subHeading]="'System administrator overview panel. Impersonate owners or view aggregate metrics.'"
-    ></app-heading>
+    >
+        <app-autocomplete *ngIf="isAdmin"></app-autocomplete>
+    </app-heading>
+
     <app-stat-card
         [label]="'Total Revenue'"
         [value]="'$200'"
@@ -22,6 +25,7 @@
                 [value]="'$' + customer.totalAmount"
             ></app-item-card>
         </app-card-container>
+
         <app-card-container
             [heading]="'Top Orders'"
             class="dashboard__top-orders"

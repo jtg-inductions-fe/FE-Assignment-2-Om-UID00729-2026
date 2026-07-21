@@ -1,0 +1,5 @@
+@use 'abstracts/mixins' as mixin;
+
+.heading {
+    @include mixin.flex-set(space-between);
+}

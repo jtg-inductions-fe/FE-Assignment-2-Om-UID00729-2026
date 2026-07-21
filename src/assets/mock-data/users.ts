@@ -2,7 +2,7 @@ import { authModel } from '@core/models/auth.model';
 
 export const mockUsers: authModel[] = [
     {
-        id: 1,
+        id: 0,
         email: 'admin@jtg.com',
         name: 'Karen Nelson',
         password: 'admin123',
@@ -10,19 +10,21 @@ export const mockUsers: authModel[] = [
         profileImg: 'assets/images/profile-placeholder-1.webp',
     },
     {
-        id: 2,
+        id: 1,
         email: 'pizzapalace@jtg.com',
         name: 'Neil Sims',
         password: 'pizza123',
         role: 'owner',
         profileImg: 'assets/images/profile-placeholder-2.webp',
+        restaurantName: 'Pizza Palace',
     },
     {
-        id: 3,
+        id: 2,
         email: 'burgerbistro@jtg.com',
         name: 'Albert Wright',
         password: 'burger123',
         role: 'owner',
         profileImg: 'assets/images/profile-placeholder-3.webp',
+        restaurantName: 'Burger Bistro',
     },
 ];
