@@ -35,6 +35,5 @@ export class AutocompleteComponent implements OnInit {
         this.restaurantDataService.setRestaurant(
             this.options.indexOf(event.option.value),
         );
-        console.log(this.options.indexOf(event.option.value));
     }
 }

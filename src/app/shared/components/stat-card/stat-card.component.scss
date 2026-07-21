@@ -1,14 +1,38 @@
 @use 'abstracts/mixins' as mixin;
 @use 'abstracts/functions' as func;
 @use 'abstracts/variables' as vars;
+@use 'themes/pallete' as pallete;
 
 .stat-card {
     border: vars.$border-light;
     border-radius: func.to-rem(12px);
 
     &__container {
-        padding: 10px;
+        padding: func.to-rem(10px);
 
         @include mixin.flex-set(space-between);
+    }
+
+    &__icon {
+        width: func.to-rem(40px);
+        height: func.to-rem(40px);
+        font-size: func.to-rem(vars.$size-xl);
+
+        @include mixin.flex-set;
+
+        &--green {
+            color: pallete.$icon-green;
+            background-color: pallete.$icon-green-bg;
+        }
+
+        &--blue {
+            color: pallete.$icon-blue;
+            background-color: pallete.$icon-blue-bg;
+        }
+
+        &--orange {
+            color: pallete.$icon-orange;
+            background-color: pallete.$icon-orange-bg;
+        }
     }
 }

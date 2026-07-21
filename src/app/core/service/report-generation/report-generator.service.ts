@@ -1,10 +1,10 @@
 import { Injectable, inject } from '@angular/core';
-import { customersModel } from '@models/customers.model';
-import { menuModel } from '@models/menu.model';
+import { customersModel } from '@core/models/customers.model';
+import { menuModel } from '@core/models/menu.model';
 import { RestaurantDataService } from '../restaurant-data/restaurant-data.service';
-import { statModel } from '@models/stats.model';
+import { statModel } from '@core/models/stats.model';
 import { AuthService } from '../auth/auth.service';
-// import { statModel } from '@models/stats.model';
+import { restaurantData } from '@assets/mock-data/restaurants';
 
 @Injectable({
     providedIn: 'root',
@@ -55,6 +55,10 @@ export class ReportGeneratorService {
         return 0;
     }
 
+    getRestaurantCount(): number {
+        return restaurantData.length - 1;
+    }
+
     getStats(): statModel[] {
         return [
             {
@@ -62,24 +66,35 @@ export class ReportGeneratorService {
                 value: `$ ${this.totalRevenue()}`,
                 icon: 'attach_money',
                 color: 'green',
+                forRole: ['admin', 'owner'],
             },
             {
                 label: 'Total Orders',
                 value: this.totalOrders(),
                 icon: 'shopping_cart',
                 color: 'blue',
+                forRole: ['admin', 'owner'],
             },
             {
                 label: 'Completed Orders',
                 value: 5,
                 icon: 'check',
                 color: 'orange',
+                forRole: ['admin', 'owner'],
             },
             {
                 label: 'Restaurant Owners',
                 value: this.getOwners(),
                 icon: 'local_pizza',
                 color: 'green',
+                forRole: ['owner'],
+            },
+            {
+                label: 'Active Restaurant',
+                value: this.getRestaurantCount(),
+                icon: 'local_pizza',
+                color: 'green',
+                forRole: ['admin'],
             },
         ];
     }

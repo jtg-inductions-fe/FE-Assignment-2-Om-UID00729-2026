@@ -2,9 +2,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '@core/service/auth/auth.service';
 import { ReportGeneratorService } from '@core/service/report-generation/report-generator.service';
 import { RestaurantDataService } from '@core/service/restaurant-data/restaurant-data.service';
-import { customersModel } from '@models/customers.model';
-import { menuModel } from '@models/menu.model';
-import { statModel } from '@models/stats.model';
+import { customersModel } from '@core/models/customers.model';
+import { menuModel } from '@core/models/menu.model';
+import { statModel } from '@core/models/stats.model';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -18,14 +18,20 @@ export class DashboardComponent implements OnInit {
     topOrders: menuModel[] = [];
     stats: statModel[] = [];
     isAdmin!: boolean;
+    currRole = this.authService.getRole();
 
     ngOnInit(): void {
-        this.isAdmin = this.authService.isAdmin();
+        this.isAdmin = this.currRole === 'admin';
 
         this.restaurantDataService.currRestaurant$.subscribe(() => {
             this.topCustomers = this.reportGenerator.topCustomers();
             this.topOrders = this.reportGenerator.topOrders();
-            this.stats = this.reportGenerator.getStats();
+            this.stats = this.reportGenerator.getStats().filter((stat) => {
+                if (this.currRole) {
+                    return stat.forRole.includes(this.currRole);
+                }
+                return [];
+            });
         });
     }
 }

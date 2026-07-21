@@ -52,7 +52,7 @@ export class AuthService {
         return this.userSubject.value !== null;
     }
 
-    isAdmin() {
-        return this.userSubject.value?.role === 'admin';
+    getRole() {
+        return this.userSubject.value?.role;
     }
 }
