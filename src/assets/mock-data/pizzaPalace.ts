@@ -1,6 +1,5 @@
 import { customersModel } from '@models/customers.model';
 import { menuModel } from '@models/menu.model';
-import { statModel } from '@models/stats.model';
 
 export const pizzaPalaceCustomers: customersModel[] = [
     {
@@ -72,28 +71,5 @@ export const pizzaPalaceMenu: menuModel[] = [
         dishName: 'Pepperoni Pizza',
         restaurant: 'Pizza Palace',
         orders: 1,
-    },
-];
-
-export const burgerBistroStats: statModel[] = [
-    {
-        label: 'Total Revenue',
-        value: '$279',
-        icon: 'attach_money',
-    },
-    {
-        label: 'Total Orders',
-        value: '13',
-        icon: 'shopping_cart',
-    },
-    {
-        label: 'Completed Orders',
-        value: '5',
-        icon: 'check',
-    },
-    {
-        label: 'Restaurant Owners',
-        value: '2',
-        icon: 'local_pizza',
     },
 ];

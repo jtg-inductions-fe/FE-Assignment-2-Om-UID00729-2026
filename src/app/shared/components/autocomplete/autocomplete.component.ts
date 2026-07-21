@@ -11,7 +11,7 @@ import { RestaurantDataService } from '@core/service/restaurant-data/restaurant-
     styleUrls: ['./autocomplete.component.scss'],
 })
 export class AutocompleteComponent implements OnInit {
-    myControl = new FormControl('');
+    myControl = new FormControl('All Restaurants');
     options: string[] = ['All Restaurants', 'Pizza Palace', 'Burger Bistro'];
     filteredOptions!: Observable<string[]>;
     restaurantDataService = inject(RestaurantDataService);

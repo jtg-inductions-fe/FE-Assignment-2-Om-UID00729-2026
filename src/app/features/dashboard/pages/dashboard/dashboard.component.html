@@ -6,13 +6,38 @@
         <app-autocomplete *ngIf="isAdmin"></app-autocomplete>
     </app-heading>
 
-    <app-stat-card
-        [label]="'Total Revenue'"
-        [value]="'$200'"
-        [icon]="'attach_money'"
-    ></app-stat-card>
+    <div class="dashboard__stat-container">
+        <app-stat-card
+            class="dashboard__stat-card"
+            *ngFor="let stat of stats"
+            [label]="stat.label"
+            [value]="stat.value"
+            [icon]="stat.icon"
+        ></app-stat-card>
+    </div>
 
-    <div class="dashboard__report">
+    <div class="dashboard__report-content-wrapper">
+        <div class="dashboard__report-text-content">
+            <h5 class="mat-headline-5">Report Generator</h5>
+            <p class="mat-subtitle-2">
+                Generate performance reports for the selected restaurant
+                context.
+            </p>
+        </div>
+        <div class="dashboard__report-buttons">
+            <app-button
+                [variant]="'stroked'"
+                [label]="'Top 10 Ordered Items'"
+                [iconLabel]="'bar_chart'"
+            ></app-button>
+            <app-button
+                [label]="'Frequently Bought Together'"
+                [iconLabel]="'group_work'"
+            ></app-button>
+        </div>
+    </div>
+
+    <div class="dashboard__data-wrapper">
         <app-card-container
             [heading]="'Top Customers'"
             class="dashboard__top-customers"
