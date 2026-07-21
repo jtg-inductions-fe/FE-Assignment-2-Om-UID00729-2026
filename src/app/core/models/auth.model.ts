@@ -5,4 +5,5 @@ export interface authModel {
     password: string;
     role: 'admin' | 'owner';
     profileImg?: string;
+    restaurantName?: string;
 }
