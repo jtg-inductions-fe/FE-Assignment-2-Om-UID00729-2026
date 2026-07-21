@@ -4,7 +4,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { AuthService } from '@core/service/auth/auth.service';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { sideBarModel } from '@models/sidebar.model';
+import { sideBarModel } from './models/sidebar.model';
 import { sideBarLinks } from '@assets/mock-data/sidebar';
 @Component({
     selector: 'app-sidebar',

@@ -2,7 +2,7 @@
 @use 'abstracts/functions' as func;
 
 .login {
-    height: 100vh;
+    height: 100%;
 
     @include mixin.flex-set;
 

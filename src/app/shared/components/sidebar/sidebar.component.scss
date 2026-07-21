@@ -1,12 +1,13 @@
 @use 'abstracts/functions' as func;
 @use 'abstracts/mixins' as mixin;
 @use 'abstracts/variables' as vars;
+@use 'themes/pallete' as pallete;
 
 .sidebar {
     height: 100%;
 
     &__mat-drawer {
-        background-color: white;
+        background-color: pallete.$background;
         min-width: func.to-rem(250px);
         border-right: vars.$border-light;
     }
@@ -40,14 +41,14 @@
 
         &:hover,
         &:focus {
-            color: vars.$primary;
+            color: pallete.$primary;
         }
     }
 
     &__drop-down-btn {
         padding: 0;
         width: 100%;
-        background: vars.$background;
+        background: pallete.$background;
 
         @include mixin.flex-set(flex-start);
     }
@@ -64,7 +65,7 @@
     }
 
     &__link-active {
-        color: vars.$primary;
+        color: pallete.$primary;
     }
 
     &__divider {
