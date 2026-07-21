@@ -1,0 +1,42 @@
+$regular: 500;
+$semi-bold: 600;
+$bold: 700;
+
+$size-xs: 16px;
+$size-sm: 18px;
+$size-md: 20px;
+$size-lg: 24px;
+$size-xl: 32px;
+$size-2xl: 48px;
+$size-3xl: 64px;
+
+$font-path: '/assets/fonts/';
+
+$fonts: (
+    inter: (
+        'regular': (
+            'file-name': 'inter-regular',
+            'font-weight': $regular,
+        ),
+        'semi-bold': (
+            'file-name': 'inter-semi-bold',
+            'font-weight': $semi-bold,
+        ),
+        'bold': (
+            'file-name': 'inter-bold',
+            'font-weight': $bold,
+        ),
+    ),
+);
+
+$breakpoints: (
+    'tablet': (
+        min-width: 768px,
+    ),
+    'desktop-sm': (
+        min-width: 1024px,
+    ),
+    'desktop-lg': (
+        min-width: 1440px,
+    ),
+);

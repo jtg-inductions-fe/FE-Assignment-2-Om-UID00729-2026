@@ -1,0 +1,20 @@
+@use './pallete' as pallete;
+
+.mat-headline-1,
+.mat-headline-2,
+.mat-headline-3,
+.mat-headline-4,
+.mat-headline-5,
+.mat-headline-6 {
+    color: pallete.$primary-font-col;
+    margin: 0;
+}
+
+.mat-subtitle-1,
+.mat-subtitle-2,
+.mat-body-1,
+.mat-body-2,
+.mat-caption {
+    color: pallete.$secondary-font-col;
+    margin: 0;
+}

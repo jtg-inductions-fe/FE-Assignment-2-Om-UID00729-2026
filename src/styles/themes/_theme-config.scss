@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+@use './pallete' as pallete;
+@use './typography' as typo;
+
+$primary: mat.define-palette(pallete.$primary-palette, 600);
+$warn: mat.define-palette(mat.$red-palette);
+
+$primary-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $primary,
+            accent: $primary,
+            warn: $warn,
+        ),
+    )
+);
+
+@include mat.core;
+@include mat.core-theme($primary-theme);
+@include mat.button-theme($primary-theme);
+@include mat.all-component-typographies(typo.$typography);

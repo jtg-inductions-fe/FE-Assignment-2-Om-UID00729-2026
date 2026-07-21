@@ -1,0 +1,98 @@
+@use 'abstracts/variables' as vars;
+@use 'abstracts/functions' as func;
+@use '@angular/material' as mat;
+
+/// Structue to define new typography level
+/// $variable: mat.define-typography-level(
+///     $font-size,
+///     $line-height,
+///     $font-weight,
+/// )
+
+//For Main Headings
+$headline-1: mat.define-typography-level(
+    func.to-rem(vars.$size-2xl),
+    func.to-rem(62.5px),
+    vars.$bold
+);
+// For Card Container Headings
+$headline-2: mat.define-typography-level(
+    func.to-rem(vars.$size-md),
+    func.to-rem(30px),
+    vars.$semi-bold
+);
+// For Stat cards/ Login Heading
+$headline-3: mat.define-typography-level(
+    func.to-rem(vars.$size-md),
+    func.to-rem(30px),
+    vars.$bold
+);
+// For Sidebars
+$headline-4: mat.define-typography-level(
+    func.to-rem(vars.$size-xs),
+    func.to-rem(vars.$size-lg),
+    vars.$regular
+);
+// For Table Main column
+$headline-5: mat.define-typography-level(
+    func.to-rem(vars.$size-xs),
+    func.to-rem(vars.$size-lg),
+    vars.$bold
+);
+// For Card Headings
+$headline-6: mat.define-typography-level(
+    func.to-rem(vars.$size-xs),
+    func.to-rem(vars.$size-lg),
+    vars.$semi-bold
+);
+// For Card Headings
+$subtitle-1: mat.define-typography-level(
+    func.to-rem(14px),
+    func.to-rem(vars.$size-md),
+    vars.$regular
+);
+// For Card Subtitles
+$subtitle-2: mat.define-typography-level(
+    func.to-rem(12px),
+    func.to-rem(vars.$size-sm),
+    vars.$regular
+);
+// For Stat card body
+$body-1: mat.define-typography-level(
+    func.to-rem(12px),
+    func.to-rem(vars.$size-sm),
+    vars.$semi-bold
+);
+// For Table Headings
+$body-2: mat.define-typography-level(
+    func.to-rem(12px),
+    func.to-rem(vars.$size-sm),
+    vars.$bold
+);
+// For Table Headings
+$caption: mat.define-typography-level(
+    func.to-rem(13px),
+    func.to-rem(vars.$size-sm),
+    vars.$semi-bold
+);
+$button: mat.define-typography-level(
+    func.to-rem(14px),
+    func.to-rem(21px),
+    vars.$semi-bold
+);
+
+$typography: mat.define-typography-config(
+    $headline-1: $headline-1,
+    $headline-2: $headline-2,
+    $headline-3: $headline-3,
+    $headline-4: $headline-4,
+    $headline-5: $headline-5,
+    $headline-6: $headline-6,
+    $subtitle-1: $subtitle-1,
+    $subtitle-2: $subtitle-2,
+    $body-1: $body-1,
+    $body-2: $body-2,
+    $caption: $caption,
+    $button: $button,
+    $font-family: inter,
+);
