@@ -17,6 +17,7 @@ export const mockUsers: authModel[] = [
         role: 'owner',
         profileImg: 'assets/images/profile-placeholder-2.webp',
         restaurantName: 'Pizza Palace',
+        owners: ['owner1@jtg.com', 'owner2@jtg.com'],
     },
     {
         id: 2,
@@ -26,5 +27,6 @@ export const mockUsers: authModel[] = [
         role: 'owner',
         profileImg: 'assets/images/profile-placeholder-3.webp',
         restaurantName: 'Burger Bistro',
+        owners: ['owner3@jtg.com', 'owner4@jtg.com'],
     },
 ];

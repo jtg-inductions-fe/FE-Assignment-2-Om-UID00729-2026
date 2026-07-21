@@ -37,6 +37,7 @@ export class AuthService {
             role: loggedInUser.role,
             profileImg: loggedInUser.profileImg,
             restaurantName: loggedInUser.restaurantName,
+            owners: loggedInUser.owners,
         });
 
         return loggedInUser;
@@ -51,7 +52,7 @@ export class AuthService {
         return this.userSubject.value !== null;
     }
 
-    getRole() {
-        return this.userSubject.value?.role;
+    isAdmin() {
+        return this.userSubject.value?.role === 'admin';
     }
 }

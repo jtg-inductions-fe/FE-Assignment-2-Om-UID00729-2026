@@ -9,7 +9,7 @@
         </div>
         <div class="item-card__details">
             <h6 class="mat-headline-6">{{ label }}</h6>
-            <p class="mat-subtitle-2">{{ subtitle }}</p>
+            <p class="mat-subtitle-2" *ngIf="isAdmin">{{ subtitle }}</p>
         </div>
         <h6 class="mat-headline-6">{{ value }}</h6>
     </mat-card-content>

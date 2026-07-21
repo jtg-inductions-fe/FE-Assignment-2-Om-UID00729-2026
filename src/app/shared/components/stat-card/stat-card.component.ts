@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./stat-card.component.scss'],
 })
 export class StatCardComponent {
-    @Input() label = '';
-    @Input() value = '';
-    @Input() icon = '';
+    @Input() label!: string;
+    @Input() value!: string | number;
+    @Input() icon!: string;
 }

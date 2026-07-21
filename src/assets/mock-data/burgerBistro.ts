@@ -1,6 +1,5 @@
 import { customersModel } from '@models/customers.model';
 import { menuModel } from '@models/menu.model';
-import { statModel } from '@models/stats.model';
 
 export const burgerBistroCustomers: customersModel[] = [
     {
@@ -66,28 +65,5 @@ export const burgerBistroMenu: menuModel[] = [
         dishName: 'Zinger Burger',
         restaurant: 'Burger Bistro',
         orders: 3,
-    },
-];
-
-export const burgerBistroStats: statModel[] = [
-    {
-        label: 'Total Revenue',
-        value: '$186',
-        icon: 'attach_money',
-    },
-    {
-        label: 'Total Orders',
-        value: '9',
-        icon: 'shopping_cart',
-    },
-    {
-        label: 'Completed Orders',
-        value: '3',
-        icon: 'check',
-    },
-    {
-        label: 'Restaurant Owners',
-        value: '2',
-        icon: 'local_pizza',
     },
 ];

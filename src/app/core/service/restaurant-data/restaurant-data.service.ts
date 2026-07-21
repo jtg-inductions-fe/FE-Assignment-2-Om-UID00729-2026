@@ -31,14 +31,13 @@ export class RestaurantDataService {
 
     getCustomers(): customersModel[] {
         if (this.restaurantId.value !== undefined) {
-            console.log(restaurantData[this.restaurantId.value].menu);
+            console.log(this.restaurantId.value);
             return restaurantData[this.restaurantId.value].customers;
         }
         return [];
     }
     getMenu(): menuModel[] {
         if (this.restaurantId.value !== undefined) {
-            console.log(restaurantData[this.restaurantId.value].menu);
             return restaurantData[this.restaurantId.value].menu;
         }
         return [];
