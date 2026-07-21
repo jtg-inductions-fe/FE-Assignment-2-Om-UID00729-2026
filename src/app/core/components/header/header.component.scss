@@ -1,9 +1,10 @@
 @use 'abstracts/mixins' as mixin;
 @use 'abstracts/functions' as func;
 @use 'abstracts/variables' as vars;
+@use 'themes/pallete' as pallete;
 
 .header {
-    background-color: vars.$background;
+    background-color: pallete.$background;
     border-bottom: vars.$border-light;
     padding-block: func.to-rem(5px);
 
@@ -27,7 +28,7 @@
     &__menu-container {
         padding: func.to-rem(10px);
         gap: func.to-rem(10px);
-        background-color: vars.$background;
+        background-color: pallete.$background;
 
         @include mixin.flex-set(center, center, column);
     }
