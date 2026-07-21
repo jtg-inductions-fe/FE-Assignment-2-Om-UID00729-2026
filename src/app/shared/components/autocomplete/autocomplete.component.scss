@@ -1,0 +1,7 @@
+@use 'themes/pallete' as pallete;
+
+.autocomplete {
+    &__option {
+        background-color: pallete.$background;
+    }
+}

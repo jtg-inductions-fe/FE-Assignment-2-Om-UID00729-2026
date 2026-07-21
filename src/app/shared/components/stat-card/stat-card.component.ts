@@ -9,4 +9,5 @@ export class StatCardComponent {
     @Input() label!: string;
     @Input() value!: string | number;
     @Input() icon!: string;
+    @Input() color!: string;
 }

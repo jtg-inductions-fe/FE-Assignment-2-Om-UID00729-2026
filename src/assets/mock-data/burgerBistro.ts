@@ -1,5 +1,5 @@
-import { customersModel } from '@models/customers.model';
-import { menuModel } from '@models/menu.model';
+import { customersModel } from '@core/models/customers.model';
+import { menuModel } from '@core/models/menu.model';
 
 export const burgerBistroCustomers: customersModel[] = [
     {

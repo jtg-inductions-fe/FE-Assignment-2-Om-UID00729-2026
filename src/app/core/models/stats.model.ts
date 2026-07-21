@@ -3,4 +3,5 @@ export interface statModel {
     value: number | string;
     icon: string;
     color: string;
+    forRole: ('admin' | 'owner')[];
 }

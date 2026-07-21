@@ -16,6 +16,6 @@ export class ItemCardComponent implements OnInit {
     @Input() value: string | undefined = '';
 
     ngOnInit(): void {
-        this.isAdmin = this.authService.isAdmin();
+        this.isAdmin = this.authService.getRole() === 'admin';
     }
 }

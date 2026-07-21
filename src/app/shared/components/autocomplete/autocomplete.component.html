@@ -1,14 +1,13 @@
-<form class="example-form">
-    <mat-form-field class="example-full-width">
+<form class="autocomplete">
+    <mat-form-field>
         <mat-label>Filter Restraunts</mat-label>
         <input
             type="text"
-            placeholder="Pick one"
             aria-label="Number"
             matInput
             [formControl]="myControl"
             [matAutocomplete]="auto"
-            value="All Restraunts"
+            value="All Restaurants"
         />
         <mat-autocomplete
             autoActiveFirstOption
@@ -18,6 +17,7 @@
             <mat-option
                 *ngFor="let option of filteredOptions | async"
                 [value]="option"
+                class="autocomplete__option"
             >
                 {{ option }}
             </mat-option>
