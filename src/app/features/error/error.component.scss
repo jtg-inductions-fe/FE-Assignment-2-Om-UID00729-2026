@@ -1,11 +1,9 @@
-@use 'abstracts/mixins' as m;
-@use 'abstracts/functions' as fun;
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
 
 .error {
-    height: auto;
-
     &__img-wrapper {
-        @include m.flex-set(center, center, column);
+        @include mixin.flex-set(center, center, column);
     }
 
     &__img {
@@ -14,12 +12,12 @@
 
     &__text {
         text-align: center;
-        gap: fun.to-rem(20px);
+        gap: func.to-rem(20px);
 
-        @include m.flex-set(center, center, column);
+        @include mixin.flex-set(center, center, column);
     }
 
     &__btn {
-        width: fun.to-rem(131px);
+        width: func.to-rem(131px);
     }
 }
