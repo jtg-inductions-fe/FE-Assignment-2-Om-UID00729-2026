@@ -7,13 +7,9 @@
     height: 100%;
     padding-block: func.to-rem(10px);
 
-    &__container {
+    &__content-wrapper {
         gap: func.to-rem(10px);
 
         @include mixin.flex-set;
-    }
-
-    &__icon {
-        height: func.to-rem(vars.$size-md);
     }
 }

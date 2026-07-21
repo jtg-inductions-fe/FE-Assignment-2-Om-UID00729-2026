@@ -1,38 +1,42 @@
-@use 'abstracts/mixins' as m;
-@use 'abstracts/functions' as v;
-
-:host {
-    height: 100vh;
-
-    @include m.flex-set;
-}
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as vars;
 
 .login {
-    padding: v.to-rem(12px);
-    gap: v.to-rem(24px);
-    box-shadow: 0 5px 10px 2px #0000001f;
+    height: 100vh;
+
+    @include mixin.flex-set;
+
+    &__container {
+        padding: vars.to-rem(12px);
+        gap: vars.to-rem(24px);
+        box-shadow: 0 5px 10px 2px #0000001f;
+    }
 
     &__heading {
         padding: 0;
 
-        @include m.flex-set(center, center, column);
+        @include mixin.flex-set(center, center, column);
     }
 
     &__form {
         gap: to-rem(10px);
 
-        @include m.flex-set(center, center, column);
+        @include mixin.flex-set(center, center, column);
     }
 
     &__form-item {
         width: 100%;
     }
 
-    @include m.respond(tablet) {
-        flex: 0.35;
+    @include mixin.respond(tablet) {
+        &__container {
+            flex: 0.35;
+        }
     }
 
-    @include m.respond(desktop-lg) {
-        flex: 0.25;
+    @include mixin.respond(desktop-lg) {
+        &__container {
+            flex: 0.25;
+        }
     }
 }

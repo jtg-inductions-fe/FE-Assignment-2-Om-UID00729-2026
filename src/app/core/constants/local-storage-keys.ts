@@ -1,3 +1,3 @@
-export const localStorageKeys = {
+export const LOCAL_STORAGE_KEYS = {
     LOGGED_IN_USER: 'LOGGED_IN_USER',
 };

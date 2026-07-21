@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/service/auth/auth.service';
+import { AuthService } from '@core/service/auth/auth.service';
 import { SnackbarService } from '@core/service/snackbar/snackbar.service';
 
 @Component({

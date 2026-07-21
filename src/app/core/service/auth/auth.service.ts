@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
-import { authModel } from '@models/auth.model';
+import { authModel } from '@core/models/auth.model';
 import { mockUsers } from '@assets/mock-data/users';
 import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from '../local-storage/local-storage.service';
-import { localStorageKeys } from 'src/constants/constant';
+import { LOCAL_STORAGE_KEYS } from '@core/constants/local-storage-keys';
 
 @Injectable({
     providedIn: 'root',
@@ -12,7 +12,7 @@ export class AuthService {
     localStorageService = inject(LocalStorageService);
 
     private userSubject = new BehaviorSubject<authModel | null>(
-        this.localStorageService.get(localStorageKeys.LOGGED_IN_USER) || null,
+        this.localStorageService.get(LOCAL_STORAGE_KEYS.LOGGED_IN_USER) || null,
     );
     currUser$ = this.userSubject.asObservable();
 
@@ -27,7 +27,7 @@ export class AuthService {
 
         this.userSubject.next(loggedInUser);
 
-        this.localStorageService.set(localStorageKeys.LOGGED_IN_USER, {
+        this.localStorageService.set(LOCAL_STORAGE_KEYS.LOGGED_IN_USER, {
             id: loggedInUser.id,
             email: loggedInUser.email,
             role: loggedInUser.role,
@@ -39,6 +39,6 @@ export class AuthService {
 
     logout() {
         this.userSubject.next(null);
-        this.localStorageService.remove(localStorageKeys.LOGGED_IN_USER);
+        this.localStorageService.remove(LOCAL_STORAGE_KEYS.LOGGED_IN_USER);
     }
 }
