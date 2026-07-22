@@ -1,15 +1,16 @@
 @use '@angular/material' as mat;
-@use './pallete' as pallete;
+@use './palette' as palette;
 @use './typography' as typo;
 
-$primary: mat.define-palette(pallete.$primary-palette, 600);
-$warn: mat.define-palette(mat.$red-palette);
+$primary: mat.define-palette(palette.$primary-palette, 600);
+$accent: mat.define-palette(mat.$amber-palette, 600);
+$warn: mat.define-palette(mat.$red-palette, 600);
 
 $primary-theme: mat.define-light-theme(
     (
         color: (
             primary: $primary,
-            accent: $primary,
+            accent: $accent,
             warn: $warn,
         ),
     )

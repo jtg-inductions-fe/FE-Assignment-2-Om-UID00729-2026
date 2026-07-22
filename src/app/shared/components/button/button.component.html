@@ -7,12 +7,7 @@
         [disabled]="disabled"
         [type]="type"
     >
-        <div class="button__content-wrapper">
-            <mat-icon *ngIf="iconLabel" class="button__icon">{{
-                iconLabel
-            }}</mat-icon
-            >{{ label }}
-        </div>
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
     </button>
     <button
         class="button"
@@ -22,12 +17,7 @@
         [disabled]="disabled"
         [type]="type"
     >
-        <div class="button__content-wrapper">
-            <mat-icon *ngIf="iconLabel" class="button__icon">{{
-                iconLabel
-            }}</mat-icon>
-            {{ label }}
-        </div>
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
     </button>
     <button
         class="button"
@@ -37,11 +27,7 @@
         [disabled]="disabled"
         [type]="type"
     >
-        <div class="button__content-wrapper">
-            <mat-icon *ngIf="iconLabel" class="button__icon">{{
-                iconLabel
-            }}</mat-icon>
-        </div>
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
     </button>
     <button
         class="button"
@@ -51,12 +37,7 @@
         [disabled]="disabled"
         [type]="type"
     >
-        <div class="button__content-wrapper">
-            <mat-icon *ngIf="iconLabel" class="button__icon">{{
-                iconLabel
-            }}</mat-icon>
-            {{ label }}
-        </div>
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
     </button>
     <button
         class="button"
@@ -66,11 +47,15 @@
         [disabled]="disabled"
         [type]="type"
     >
-        <div class="button__content-wrapper">
-            <mat-icon *ngIf="iconLabel" class="button__icon">{{
-                iconLabel
-            }}</mat-icon>
-            {{ label }}
-        </div>
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
     </button>
 </ng-container>
+
+<ng-template #buttonContent>
+    <div class="button__content-wrapper">
+        <mat-icon *ngIf="iconLabel" class="button__icon">{{
+            iconLabel
+        }}</mat-icon>
+        {{ label }}
+    </div>
+</ng-template>

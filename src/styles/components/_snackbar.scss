@@ -1,14 +1,16 @@
+@use 'themes/palette' as palette;
+
 .success-snackbar {
-    --mdc-snackbar-supporting-text-color: #28a745;
-    --mat-snack-bar-button-color: #28a745;
+    --mdc-snackbar-supporting-text-color: #{palette.$success};
+    --mat-snack-bar-button-color: #{palette.$success};
 }
 
 .error-snackbar {
-    --mdc-snackbar-supporting-text-color: #ff2c2c;
-    --mat-snack-bar-button-color: #ff2c2c;
+    --mdc-snackbar-supporting-text-color: #{palette.$error};
+    --mat-snack-bar-button-color: #{palette.$error};
 }
 
 .warning-snackbar {
-    --mdc-snackbar-supporting-text-color: #e9d502;
-    --mat-snack-bar-button-color: #e9d502;
+    --mdc-snackbar-supporting-text-color: #{palette.$warn};
+    --mat-snack-bar-button-color: #{palette.$warn};
 }

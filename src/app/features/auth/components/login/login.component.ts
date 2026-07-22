@@ -41,4 +41,40 @@ export class LoginComponent {
 
         this.snackbar.showSuccess('Logged in Successfully');
     }
+
+    getEmailError(): string {
+        const control = this.loginForm.get('email');
+
+        if (!control || !control.touched || !control.errors) {
+            return '';
+        }
+
+        if (control?.hasError('email')) {
+            return 'Enter a valid Email';
+        }
+
+        if (control?.hasError('required')) {
+            return 'Password is required';
+        }
+
+        return '';
+    }
+
+    getPasswordError(): string {
+        const control = this.loginForm.get('password');
+
+        if (!control || !control.touched || !control.errors) {
+            return '';
+        }
+
+        if (control?.hasError('required')) {
+            return 'Password is required';
+        }
+
+        if (control?.hasError('minlength')) {
+            return 'Minimum Length must be 8 Characters';
+        }
+
+        return '';
+    }
 }
