@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from './components/button/button.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-    exports: [CommonModule],
-    imports: [CommonModule],
+    declarations: [ButtonComponent],
+    imports: [CommonModule, MatButtonModule, MatIconModule],
+    exports: [ButtonComponent],
 })
 export class SharedModule {}

@@ -1,0 +1,61 @@
+<ng-container [ngSwitch]="variant">
+    <button
+        class="button"
+        *ngSwitchCase="'flat'"
+        mat-flat-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+    >
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+    <button
+        class="button"
+        *ngSwitchCase="'stroked'"
+        mat-stroked-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+    >
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+    <button
+        class="button"
+        *ngSwitchCase="'icon'"
+        mat-icon-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+    >
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+    <button
+        class="button"
+        *ngSwitchCase="'basic'"
+        mat-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+    >
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+    <button
+        class="button"
+        *ngSwitchDefault
+        mat-raised-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+    >
+        <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+</ng-container>
+
+<ng-template #buttonContent>
+    <div class="button__content-wrapper">
+        <mat-icon *ngIf="iconLabel" class="button__icon">{{
+            iconLabel
+        }}</mat-icon>
+        {{ label }}
+    </div>
+</ng-template>

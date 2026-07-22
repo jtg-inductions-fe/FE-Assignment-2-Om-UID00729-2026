@@ -1,0 +1,15 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+
+.button {
+    width: 100%;
+    height: 100%;
+    padding-block: func.to-rem(10px);
+
+    &__content-wrapper {
+        gap: func.to-rem(10px);
+
+        @include mixin.flex-set;
+    }
+}

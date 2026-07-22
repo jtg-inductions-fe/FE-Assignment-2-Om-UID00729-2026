@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 $primary-palette: (
     50: #e5f5ee,
     100: #c0e6d5,
@@ -25,3 +27,7 @@ $primary-palette: (
 
 $primary-font-col: #000000de;
 $secondary-font-col: #00000099;
+
+$success: #28a745;
+$error: #ff2c2c;
+$warn: #e9d502;

@@ -1,0 +1,63 @@
+<div class="login">
+    <mat-card class="login__container">
+        <mat-card-header class="login__heading">
+            <h1 class="mat-headline-3">Restaurant Portal</h1>
+            <p class="mat-body-1">Log in to manage orders, menus, and stats.</p>
+        </mat-card-header>
+        <form
+            [formGroup]="loginForm"
+            (ngSubmit)="loginUser()"
+            class="login__form"
+        >
+            <mat-form-field appearance="outline" class="login__form-item">
+                <mat-label>Email Address</mat-label>
+                <input
+                    matInput
+                    type="email"
+                    formControlName="email"
+                    placeholder="xyz@jtg.com"
+                />
+
+                <mat-error>
+                    {{ getEmailError() }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="login__form-item">
+                <mat-label>Password</mat-label>
+
+                <input
+                    matInput
+                    [type]="hidePassword ? 'password' : 'text'"
+                    formControlName="password"
+                    autocomplete="on"
+                />
+
+                <app-button
+                    [variant]="'icon'"
+                    type="button"
+                    mat-icon-button
+                    matSuffix
+                    [iconLabel]="hidePassword ? 'visibility_off' : 'visibility'"
+                    (click)="hidePassword = !hidePassword"
+                    [attr.aria-label]="
+                        hidePassword ? 'Show password' : 'Hide password'
+                    "
+                    [attr.aria-pressed]="hidePassword"
+                >
+                </app-button>
+                <mat-error>
+                    {{ getPasswordError() }}
+                </mat-error>
+            </mat-form-field>
+
+            <app-button
+                label="LOGIN"
+                [disabled]="loginForm.invalid"
+                [type]="'submit'"
+                class="login__form-item"
+            >
+            </app-button>
+        </form>
+    </mat-card>
+</div>

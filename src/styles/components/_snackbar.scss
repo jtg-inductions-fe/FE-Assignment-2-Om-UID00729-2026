@@ -1,0 +1,16 @@
+@use 'themes/palette' as palette;
+
+.success-snackbar {
+    --mdc-snackbar-supporting-text-color: #{palette.$success};
+    --mat-snack-bar-button-color: #{palette.$success};
+}
+
+.error-snackbar {
+    --mdc-snackbar-supporting-text-color: #{palette.$error};
+    --mat-snack-bar-button-color: #{palette.$error};
+}
+
+.warning-snackbar {
+    --mdc-snackbar-supporting-text-color: #{palette.$warn};
+    --mat-snack-bar-button-color: #{palette.$warn};
+}
