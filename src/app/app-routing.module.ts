@@ -30,7 +30,7 @@ const routes: Routes = [
     {
         path: 'error',
         component: ErrorComponent,
-        data: errorData['Not-Found'],
+        data: errorData['Internal Error'],
     },
     {
         path: '**',
