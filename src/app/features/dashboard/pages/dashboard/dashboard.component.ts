@@ -5,6 +5,8 @@ import { RestaurantDataService } from '@core/services/restaurant-data/restaurant
 import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
 import { statModel } from '@core/models/stats.model';
+import { pizzaPalaceOrders } from '@assets/mock-data/pizzaPalace';
+import { ordersKeys } from '@assets/mock-data/orderTableColumns';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -19,6 +21,8 @@ export class DashboardComponent implements OnInit {
     stats: statModel[] = [];
     isAdmin!: boolean;
     currRole = this.authService.getRole();
+    orderColumns = ordersKeys;
+    orderData = pizzaPalaceOrders;
 
     ngOnInit(): void {
         this.isAdmin = this.currRole === 'admin';

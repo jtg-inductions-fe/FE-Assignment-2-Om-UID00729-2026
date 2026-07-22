@@ -1,0 +1,9 @@
+@use 'abstracts/mixins' as mixin;
+
+.table {
+    &__buttons {
+        gap: 10px;
+        height: 50%;
+        @include mixin.flex-set(flex-end);
+    }
+}
