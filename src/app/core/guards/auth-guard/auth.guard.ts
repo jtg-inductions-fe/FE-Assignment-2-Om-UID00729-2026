@@ -11,15 +11,13 @@ export const authGuard: CanActivateFn = (route) => {
 
     if (unauthenticatedOnly) {
         if (isloggedIn) {
-            router.navigate(['/dashboard']);
-            return false;
+            return router.createUrlTree(['/dashboard']);
         }
         return true;
     }
 
     if (!isloggedIn) {
-        router.navigate(['auth/login']);
-        return false;
+        return router.createUrlTree(['auth/login']);
     }
     return true;
 };

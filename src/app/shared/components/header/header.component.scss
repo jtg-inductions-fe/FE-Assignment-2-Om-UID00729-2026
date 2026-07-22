@@ -40,9 +40,9 @@
     }
 
     &__menu-details {
-        gap: to-rem(10px);
+        gap: func.to-rem(10px);
 
-        @include mixin.flex-set(center, start, column);
+        @include mixin.flex-set(center, flex-start, column);
     }
 
     @include mixin.respond(tablet) {
