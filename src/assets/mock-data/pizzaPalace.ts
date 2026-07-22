@@ -1,5 +1,6 @@
 import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
+import { orderDataModel } from '@features/dashboard/models/orderData.model';
 
 export const pizzaPalaceCustomers: customersModel[] = [
     {
@@ -71,5 +72,32 @@ export const pizzaPalaceMenu: menuModel[] = [
         dishName: 'Pepperoni Pizza',
         restaurant: 'Pizza Palace',
         orders: 1,
+    },
+];
+
+export const pizzaPalaceOrders: orderDataModel[] = [
+    {
+        orderID: 1002,
+        restaurant: 'Pizza Palace',
+        customer: 'Dave Miller',
+        items: ['Soda', 'Margherita Pizza'],
+        amount: 28,
+        status: 'pending',
+        actions: [
+            { icon: 'close', label: 'Reject', variant: 'stroked' },
+            { icon: 'check', label: 'Accept' },
+        ],
+    },
+    {
+        orderID: 1003,
+        restaurant: 'Pizza Palace',
+        customer: 'John Snow',
+        items: ['Garlic Bread', 'Pepperoni Pizza'],
+        amount: 48,
+        status: 'pending',
+        actions: [
+            { icon: 'close', label: 'Reject', variant: 'stroked' },
+            { icon: 'check', label: 'Accept' },
+        ],
     },
 ];
