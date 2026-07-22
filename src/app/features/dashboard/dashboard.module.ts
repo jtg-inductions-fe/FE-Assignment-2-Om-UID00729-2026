@@ -12,6 +12,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
     declarations: [DashboardComponent, AutocompleteComponent],
@@ -25,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
         MatFormFieldModule,
         MatAutocompleteModule,
         MatInputModule,
+        CdkTableModule,
+        MatChipsModule,
     ],
     exports: [DashboardComponent],
 })

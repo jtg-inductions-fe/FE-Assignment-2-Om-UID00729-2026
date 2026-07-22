@@ -63,6 +63,19 @@
                 [value]="item.orders + ' orders'"
             ></app-item-card>
         </app-card-container>
+        <mat-chip-listbox>
+            <mat-chip-option color="primary">hello</mat-chip-option>
+        </mat-chip-listbox>
     </div>
     <app-table [dataSource]="orderData" [columns]="orderColumns"></app-table>
 </div>
+
+<ng-template #dashboardBadge> </ng-template>
+<ng-template #dashboardButtons let-row>
+    <app-button
+        [variant]="'stroked'"
+        [label]="'Reject'"
+        [iconLabel]="'close'"
+    ></app-button>
+    <app-button [label]="'Accept'" [iconLabel]="'check'"></app-button>
+</ng-template>
