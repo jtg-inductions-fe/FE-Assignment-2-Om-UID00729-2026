@@ -1,14 +1,15 @@
 <mat-toolbar class="header">
-    <a routerLink="/" class="header__logo">
-        <img src="assets/favicon.svg" alt="Company Logo" />
-    </a>
     <button
         mat-icon-button
         aria-label="User profile menu"
         class="header__profile-btn header__hamburger"
+        *ngIf="authservice.isloggedIn()"
     >
         <mat-icon>menu</mat-icon>
     </button>
+    <a routerLink="/">
+        <img src="assets/favicon.svg" alt="Company Logo" />
+    </a>
     <ng-container *ngIf="authservice.currUser$ | async as user">
         <button
             mat-icon-button
@@ -17,7 +18,7 @@
             class="header__profile-btn"
         >
             <img
-                src="{{ user.profileImg }}"
+                src="{{ user.profileImg ? user.profileImg : defaultImg }}"
                 alt="User Profile Picture"
                 class="header__profile-img"
             />
@@ -26,7 +27,7 @@
         <mat-menu #menu="matMenu">
             <div class="header__menu-container">
                 <img
-                    src="{{ user.profileImg }}"
+                    src="{{ user.profileImg ? user.profileImg : defaultImg }}"
                     alt="User Profile Picture"
                     class="header__menu-img"
                 />

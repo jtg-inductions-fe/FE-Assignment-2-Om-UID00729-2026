@@ -4,14 +4,14 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '@core/services/auth/auth.service';
 import { ROUTE_KEYS } from '@core/constants/routes-keys';
 
-export const authGuard: CanActivateFn = () => {
+export const unauthGuard: CanActivateFn = () => {
     const authService = inject(AuthService);
     const router = inject(Router);
 
     const isloggedIn = authService.isloggedIn();
 
     if (!isloggedIn) {
-        return true;
+        return router.createUrlTree([ROUTE_KEYS.LOGIN]);
     }
-    return router.createUrlTree([ROUTE_KEYS.DASHBOARD]);
+    return true;
 };

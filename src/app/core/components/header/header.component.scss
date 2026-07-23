@@ -12,10 +12,6 @@
         display: block;
     }
 
-    &__logo {
-        display: none;
-    }
-
     &__profile-btn {
         border-radius: 50%;
         padding: 0;
@@ -48,10 +44,6 @@
     @include mixin.respond(tablet) {
         &__hamburger {
             display: none;
-        }
-
-        &__logo {
-            display: block;
         }
     }
 }

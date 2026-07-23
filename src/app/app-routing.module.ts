@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from '@core/guards/auth-guard/auth.guard';
+import { unauthGuard } from '@core/guards/unauth-guard/unauth.guard';
 
 const routes: Routes = [
     {
@@ -15,9 +16,6 @@ const routes: Routes = [
                 (module) => module.AuthModule,
             ),
         canActivate: [authGuard],
-        data: {
-            unauthenticatedOnly: true,
-        },
     },
     {
         path: 'dashboard',
@@ -25,7 +23,7 @@ const routes: Routes = [
             import('@features/dashboard/dashboard.module').then(
                 (module) => module.DashboardModule,
             ),
-        canActivate: [authGuard],
+        canActivate: [unauthGuard],
     },
 ];
 
