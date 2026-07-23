@@ -10,6 +10,8 @@ import { CardContainerComponent } from './components/card-container/card-contain
 import { ItemCardComponent } from './components/item-card/item-card.component';
 import { StatCardComponent } from './components/stat-card/stat-card.component';
 import { HeadingComponent } from './components/heading/heading.component';
+import { TableComponent } from './components/table/table.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
     declarations: [
@@ -18,14 +20,22 @@ import { HeadingComponent } from './components/heading/heading.component';
         ItemCardComponent,
         StatCardComponent,
         HeadingComponent,
+        TableComponent,
     ],
-    imports: [CommonModule, MatButtonModule, MatIconModule, MatCardModule],
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatTableModule,
+    ],
     exports: [
         ButtonComponent,
         CardContainerComponent,
         ItemCardComponent,
         StatCardComponent,
         HeadingComponent,
+        TableComponent,
     ],
 })
 export class SharedModule {}

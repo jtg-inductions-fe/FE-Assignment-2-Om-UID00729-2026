@@ -4,5 +4,5 @@ export interface orderDataModel {
     customer: string;
     items?: string[];
     amount: number;
-    status?: 'Pending' | 'Completed' | 'Preparing' | 'Rejected';
+    status?: 'Pending' | 'Preparing';
 }

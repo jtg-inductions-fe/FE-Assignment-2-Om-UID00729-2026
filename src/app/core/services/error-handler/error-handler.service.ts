@@ -8,7 +8,6 @@ export class ErrorHandlerService extends ErrorHandler {
     override handleError(error: unknown): void {
         super.handleError(error);
         this.ngZone.run(() => {
-            console.log(error);
             this.router.navigate(['/error'], { state: { isError: true } });
         });
     }
