@@ -67,7 +67,7 @@
     <app-card-container
         [heading]="'Active Orders'"
         [subHeading]="'Manage pending and accepted orders directly from your dashboard.'"
-        *ngIf="orderData.length"
+        *ngIf="!isAdmin"
         class="dashboard__table-wrapper"
     >
         <app-table
@@ -90,7 +90,6 @@
 <ng-template #buttonTemplate let-row>
     <div class="dashboard__table-button-wrapper">
         <app-button
-            *ngIf="row.status === 'Pending'"
             class="dashboard__table-button"
             [variant]="'stroked'"
             [label]="'Reject'"
@@ -110,13 +109,6 @@
             [iconLabel]="'alarm'"
             class="dashboard__table-button"
             (click)="handleComplete(row)"
-        ></app-button>
-        <app-button
-            *ngIf="row.status === 'Rejected' || row.status === 'Completed'"
-            [label]="'Remove Order'"
-            [iconLabel]="'check'"
-            class="dashboard__table-button"
-            (click)="handleRemove(row)"
         ></app-button>
     </div>
 </ng-template>

@@ -58,7 +58,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        console.log(this.orderData);
         this.templates = {
             status: this.statusTemplate,
             actions: this.buttonTemplate,
@@ -66,8 +65,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
 
     handleReject(row: orderDataModel) {
-        row.status = 'Rejected';
         this.snackbarService.showError('Order Rejected');
+        this.orderData = this.orderData.filter(
+            (order) => order.orderID !== row.orderID,
+        );
     }
 
     handleAccept(row: orderDataModel) {
@@ -75,11 +76,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
 
     handleComplete(row: orderDataModel) {
-        row.status = 'Completed';
         this.snackbarService.showSuccess('Order Completed');
-    }
-
-    handleRemove(row: orderDataModel) {
         this.orderData = this.orderData.filter(
             (order) => order.orderID !== row.orderID,
         );

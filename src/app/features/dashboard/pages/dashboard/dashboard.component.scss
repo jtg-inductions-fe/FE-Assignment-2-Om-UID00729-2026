@@ -29,6 +29,7 @@
         width: 100%;
         display: grid;
         gap: func.to-rem(12px);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     &__report-content-wrapper {
@@ -67,24 +68,12 @@
 
         &--Pending {
             color: palette.$on-warn;
-            background-color: palette.$warn;
+            background-color: palette.$warn-light;
         }
 
-        &--Preparing,
-        &--Completed {
+        &--Preparing {
             color: palette.$on-success;
             background-color: palette.$success;
-        }
-
-        &--Rejected {
-            color: palette.$on-error;
-            background-color: palette.$error;
-        }
-    }
-
-    @include mixin.respond('tablet') {
-        &__stat-container {
-            grid-template-columns: repeat(2, 1fr);
         }
     }
 
