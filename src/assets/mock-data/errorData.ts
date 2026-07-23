@@ -4,7 +4,7 @@ export const errorData = {
         imgSrc: 'assets/images/InternalError.webp',
         imgAlt: 'Internal Error',
         message:
-            'It’s always time for a coffee break We should be back by the time you finish your coffee.',
+            'It’s always time for a coffee break. We should be back by the time you finish your coffee.',
     },
     'Not-Found': {
         label: 'Page not Found',
