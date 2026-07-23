@@ -7,4 +7,5 @@ export interface authModel {
     profileImg?: string;
     restaurantName?: string;
     owners?: string[];
+    address?: string;
 }
