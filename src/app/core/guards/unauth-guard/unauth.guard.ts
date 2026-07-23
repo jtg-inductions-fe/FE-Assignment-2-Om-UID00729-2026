@@ -8,7 +8,7 @@ export const unauthGuard: CanActivateFn = () => {
     const authService = inject(AuthService);
     const router = inject(Router);
 
-    const isloggedIn = authService.isloggedIn();
+    const isloggedIn = authService.isLoggedIn();
 
     if (!isloggedIn) {
         return router.createUrlTree([ROUTE_KEYS.LOGIN]);

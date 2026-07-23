@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { AuthService } from '@core/service/auth/auth.service';
+import { AuthService } from '@core/services/auth/auth.service';
 
 @Component({
     selector: 'app-item-card',

@@ -1,0 +1,51 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/variables' as vars;
+@use 'abstracts/functions' as func;
+
+.dashboard {
+    width: 100%;
+    height: 100%;
+    padding: func.to-rem(vars.$size-xs);
+    gap: func.to-rem(vars.$size-sm);
+
+    @include mixin.flex-set(unset, unset, column);
+
+    &__data-wrapper {
+        gap: func.to-rem(vars.$size-xs);
+
+        @include mixin.flex-set;
+    }
+
+    &__top-customers {
+        flex: 0.35;
+    }
+
+    &__top-orders {
+        flex: 0.65;
+    }
+
+    &__stat-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: func.to-rem(12px);
+    }
+
+    &__report-content-wrapper {
+        border: vars.$border-light;
+        border-radius: func.to-rem(12px);
+        padding: func.to-rem(10px);
+
+        @include mixin.flex-set(space-between);
+    }
+
+    &__report-text-content {
+        width: 23%;
+    }
+
+    &__report-buttons {
+        gap: func.to-rem(8px);
+
+        @include mixin.flex-set(space-between);
+    }
+}
