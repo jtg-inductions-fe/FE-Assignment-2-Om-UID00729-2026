@@ -8,6 +8,7 @@ import { CoreModule } from '@core/core.module';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ErrorHandlerService } from '@core/services/error-handler/error-handler.service';
+import { LayoutModule } from '@core/layout/layout.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { ErrorHandlerService } from '@core/services/error-handler/error-handler.
         BrowserAnimationsModule,
         MatSnackBarModule,
         CoreModule,
+        LayoutModule,
     ],
     bootstrap: [AppComponent],
     providers: [

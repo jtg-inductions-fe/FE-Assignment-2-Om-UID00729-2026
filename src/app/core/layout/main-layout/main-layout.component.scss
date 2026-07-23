@@ -1,10 +1,10 @@
-@use 'abstracts/mixins' as m;
+@use 'abstracts/mixins' as mixin;
 
 .main-layout {
     height: 100vh;
     width: 100vw;
 
-    @include m.flex-set(center, normal, column);
+    @include mixin.flex-set(center, normal, column);
 
     &__content {
         flex: 1;

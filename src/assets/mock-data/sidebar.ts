@@ -1,4 +1,4 @@
-import { sideBarModel } from '@shared/components/sidebar/models/sidebar.model';
+import { sideBarModel } from '@core/models/sidebar.model';
 
 export const sideBarLinks: sideBarModel[] = [
     {
