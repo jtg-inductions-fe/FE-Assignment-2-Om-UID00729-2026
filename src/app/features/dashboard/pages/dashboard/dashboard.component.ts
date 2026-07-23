@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { AuthService } from '@core/service/auth/auth.service';
-import { ReportGeneratorService } from '@core/service/report-generation/report-generator.service';
-import { RestaurantDataService } from '@core/service/restaurant-data/restaurant-data.service';
+import { AuthService } from '@core/services/auth/auth.service';
+import { ReportGeneratorService } from '@core/services/report-generation/report-generator.service';
+import { RestaurantDataService } from '@core/services/restaurant-data/restaurant-data.service';
 import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
 import { statModel } from '@core/models/stats.model';

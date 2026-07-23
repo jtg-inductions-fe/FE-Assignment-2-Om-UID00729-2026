@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { RestaurantDataService } from '@core/service/restaurant-data/restaurant-data.service';
+import { RestaurantDataService } from '@core/services/restaurant-data/restaurant-data.service';
 
 @Component({
     selector: 'app-autocomplete',
