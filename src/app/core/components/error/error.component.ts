@@ -1,5 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { errorData } from '@assets/mock-data/errorData';
+import { ROUTE_KEYS } from '@core/constants/routes-keys';
 
 @Component({
     selector: 'app-not-found',
@@ -9,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ErrorComponent implements OnInit {
     activatedRoute = inject(ActivatedRoute);
     router = inject(Router);
+    routes = ROUTE_KEYS;
 
     label = '';
     imgSrc = '';
@@ -16,12 +19,15 @@ export class ErrorComponent implements OnInit {
     message = '';
 
     ngOnInit(): void {
-        const routeData = this.activatedRoute.snapshot.data;
+        let routeData = errorData['Not-Found'];
         const state = history.state;
 
         if (this.router.url === '/error') {
             if (!state?.isError) {
                 this.router.navigate(['/dashboard']);
+                return;
+            } else {
+                routeData = errorData['Internal Error'];
             }
         }
 

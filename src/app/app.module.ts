@@ -7,11 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from '@core/core.module';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ErrorComponent } from './features/error/error.component';
-import { ErrorHandlerService } from '@core/services/error-handler.service';
+import { ErrorHandlerService } from '@core/services/error-handler/error-handler.service';
 
 @NgModule({
-    declarations: [AppComponent, ErrorComponent],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { errorData } from '@assets/mock-data/errorData';
 import { authGuard } from '@core/guards/auth-guard/auth.guard';
 import { unauthGuard } from '@core/guards/unauth-guard/unauth.guard';
-import { ErrorComponent } from '@features/error/error.component';
+import { ErrorComponent } from '@core/components/error/error.component';
 
 const routes: Routes = [
     {
@@ -30,12 +29,10 @@ const routes: Routes = [
     {
         path: 'error',
         component: ErrorComponent,
-        data: errorData['Internal Error'],
     },
     {
         path: '**',
         component: ErrorComponent,
-        data: errorData['Not-Found'],
     },
 ];
 
