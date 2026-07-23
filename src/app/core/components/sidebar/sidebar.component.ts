@@ -1,11 +1,14 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, inject, ViewChild, OnInit } from '@angular/core';
+import { AuthService } from '@core/services/auth/auth.service';
+
+import { sideBarModel } from '@core/models/sidebar.model';
+import { sideBarLinks } from '@assets/mock-data/sidebar';
+
 import { MatDrawer } from '@angular/material/sidenav';
-import { AuthService } from '@core/service/auth/auth.service';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { sideBarModel } from './models/sidebar.model';
-import { sideBarLinks } from '@assets/mock-data/sidebar';
+
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
@@ -14,9 +17,11 @@ import { sideBarLinks } from '@assets/mock-data/sidebar';
 export class SidebarComponent implements OnInit {
     observer = inject(BreakpointObserver);
     authService = inject(AuthService);
+
     treeControl = new NestedTreeControl<sideBarModel>((node) => node.children);
     RoleLinksDataSource = new MatTreeNestedDataSource<sideBarModel>();
     CommonLinksDataSource = new MatTreeNestedDataSource<sideBarModel>();
+
     isdesktop = true;
     sidebarData: sideBarModel[] = [];
 

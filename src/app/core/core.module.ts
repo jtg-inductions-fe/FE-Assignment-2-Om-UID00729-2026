@@ -4,16 +4,19 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
+import { ErrorComponent } from './components/error/error.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ErrorComponent } from './components/error/error.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTreeModule } from '@angular/material/tree';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
-    declarations: [HeaderComponent, ErrorComponent],
+    declarations: [HeaderComponent, ErrorComponent, SidebarComponent],
     imports: [
         CommonModule,
         AppRoutingModule,
@@ -23,7 +26,9 @@ import { ErrorComponent } from './components/error/error.component';
         MatIconModule,
         MatDividerModule,
         MatToolbarModule,
+        MatSidenavModule,
+        MatTreeModule,
     ],
-    exports: [HeaderComponent, ErrorComponent],
+    exports: [HeaderComponent, ErrorComponent, SidebarComponent],
 })
 export class CoreModule {}
