@@ -1,6 +1,7 @@
 @use 'abstracts/mixins' as mixin;
 @use 'abstracts/variables' as vars;
 @use 'abstracts/functions' as func;
+@use 'themes/palette' as palette;
 
 .dashboard {
     width: 100%;
@@ -13,7 +14,7 @@
     &__data-wrapper {
         gap: func.to-rem(vars.$size-xs);
 
-        @include mixin.flex-set;
+        @include mixin.flex-set(center, unset, column);
     }
 
     &__top-customers {
@@ -27,7 +28,6 @@
     &__stat-container {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
         gap: func.to-rem(12px);
     }
 
@@ -35,17 +35,80 @@
         border: vars.$border-light;
         border-radius: func.to-rem(12px);
         padding: func.to-rem(10px);
+        gap: func.to-rem(10px);
 
-        @include mixin.flex-set(space-between);
+        @include mixin.flex-set(space-between, normal, column);
     }
 
     &__report-text-content {
-        width: 23%;
+        text-align: center;
     }
 
     &__report-buttons {
         gap: func.to-rem(8px);
 
-        @include mixin.flex-set(space-between);
+        @include mixin.flex-set(space-between, normal, column);
+    }
+
+    &__table-wrapper {
+        width: 100%;
+    }
+
+    &__table-button-wrapper {
+        gap: func.to-rem(10px);
+
+        @include mixin.flex-set;
+    }
+
+    &__table-status {
+        padding: func.to-rem(5px);
+        border-radius: func.to-rem(20px);
+        @include mixin.flex-set;
+
+        &--Pending {
+            color: palette.$on-warn;
+            background-color: palette.$warn;
+        }
+
+        &--Preparing,
+        &--Completed {
+            color: palette.$on-success;
+            background-color: palette.$success;
+        }
+
+        &--Rejected {
+            color: palette.$on-error;
+            background-color: palette.$error;
+        }
+    }
+
+    @include mixin.respond('tablet') {
+        &__stat-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @include mixin.respond('desktop-sm') {
+        &__stat-container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        &__report-content-wrapper {
+            gap: 0;
+
+            @include mixin.flex-set(space-between);
+        }
+
+        &__report-buttons {
+            @include mixin.flex-set(space-between);
+        }
+
+        &__data-wrapper {
+            @include mixin.flex-set;
+        }
+
+        &__report-text-content {
+            text-align: start;
+        }
     }
 }

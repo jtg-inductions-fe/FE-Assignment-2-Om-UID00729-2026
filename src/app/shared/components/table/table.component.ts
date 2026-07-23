@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { tableColumnsModel } from '@core/models/tableColumn.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { tableColumnsModel } from '@core/models/tableColumn.model';
 export class TableComponent implements OnInit {
     @Input() dataSource!: unknown[];
     @Input() columns!: tableColumnsModel[];
+    @Input() templates: Record<string, TemplateRef<unknown>> = {};
 
     displayedColumns: string[] = [];
 
