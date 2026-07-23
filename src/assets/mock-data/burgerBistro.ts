@@ -1,5 +1,6 @@
 import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
+import { orderDataModel } from '@features/dashboard/models/orderData.model';
 
 export const burgerBistroCustomers: customersModel[] = [
     {
@@ -65,5 +66,32 @@ export const burgerBistroMenu: menuModel[] = [
         dishName: 'Zinger Burger',
         restaurant: 'Burger Bistro',
         orders: 3,
+    },
+];
+
+export const burgerBistroOrders: orderDataModel[] = [
+    {
+        orderID: 1002,
+        restaurant: 'Burger Bistro',
+        customer: 'Stephen',
+        items: ['Soda', 'Zinger Burger'],
+        amount: 28,
+        status: 'Pending',
+    },
+    {
+        orderID: 1003,
+        restaurant: 'Burger Bistro',
+        customer: 'Laufey',
+        items: ['French Fries', 'CheeseBurger'],
+        amount: 48,
+        status: 'Pending',
+    },
+    {
+        orderID: 1004,
+        restaurant: 'Burger Bistro',
+        customer: 'Karen Nelson',
+        items: ['Double Cheese Burger', 'Soda'],
+        amount: 68,
+        status: 'Pending',
     },
 ];

@@ -63,19 +63,60 @@
                 [value]="item.orders + ' orders'"
             ></app-item-card>
         </app-card-container>
-        <mat-chip-listbox>
-            <mat-chip-option color="primary">hello</mat-chip-option>
-        </mat-chip-listbox>
     </div>
-    <app-table [dataSource]="orderData" [columns]="orderColumns"></app-table>
+    <app-card-container
+        [heading]="'Active Orders'"
+        [subHeading]="'Manage pending and accepted orders directly from your dashboard.'"
+        *ngIf="orderData.length"
+        class="dashboard__table-wrapper"
+    >
+        <app-table
+            [dataSource]="orderData"
+            [columns]="orderColumns"
+            [templates]="templates"
+        ></app-table>
+    </app-card-container>
 </div>
 
-<ng-template #dashboardBadge> </ng-template>
-<ng-template #dashboardButtons let-row>
-    <app-button
-        [variant]="'stroked'"
-        [label]="'Reject'"
-        [iconLabel]="'close'"
-    ></app-button>
-    <app-button [label]="'Accept'" [iconLabel]="'check'"></app-button>
+<ng-template #statusTemplate let-row>
+    <div
+        class="dashboard__table-status"
+        [ngClass]="'dashboard__table-status--' + row.status"
+    >
+        {{ row.status }}
+    </div>
+</ng-template>
+
+<ng-template #buttonTemplate let-row>
+    <div class="dashboard__table-button-wrapper">
+        <app-button
+            *ngIf="row.status === 'Pending'"
+            class="dashboard__table-button"
+            [variant]="'stroked'"
+            [label]="'Reject'"
+            [iconLabel]="'close'"
+            (click)="handleReject(row)"
+        ></app-button>
+        <app-button
+            *ngIf="row.status === 'Pending'"
+            [label]="'Accept'"
+            [iconLabel]="'check'"
+            class="dashboard__table-button"
+            (click)="handleAccept(row)"
+        ></app-button>
+        <app-button
+            *ngIf="row.status === 'Preparing'"
+            [label]="'Complete'"
+            [iconLabel]="'alarm'"
+            class="dashboard__table-button"
+            (click)="handleComplete(row)"
+        ></app-button>
+        <app-button
+            *ngIf="row.status === 'Rejected' || row.status === 'Completed'"
+            [label]="'Remove Order'"
+            [iconLabel]="'check'"
+            class="dashboard__table-button"
+            (click)="handleRemove(row)"
+        ></app-button>
+    </div>
 </ng-template>

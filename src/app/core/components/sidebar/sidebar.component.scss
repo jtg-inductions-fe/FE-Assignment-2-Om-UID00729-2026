@@ -6,6 +6,10 @@
 .sidebar {
     height: 100%;
 
+    &__container {
+        height: 100%;
+    }
+
     &__mat-drawer {
         background-color: palette.$background;
         min-width: func.to-rem(250px);

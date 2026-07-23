@@ -82,11 +82,7 @@ export const pizzaPalaceOrders: orderDataModel[] = [
         customer: 'Dave Miller',
         items: ['Soda', 'Margherita Pizza'],
         amount: 28,
-        status: 'pending',
-        actions: [
-            { icon: 'close', label: 'Reject', variant: 'stroked' },
-            { icon: 'check', label: 'Accept' },
-        ],
+        status: 'Pending',
     },
     {
         orderID: 1003,
@@ -94,10 +90,14 @@ export const pizzaPalaceOrders: orderDataModel[] = [
         customer: 'John Snow',
         items: ['Garlic Bread', 'Pepperoni Pizza'],
         amount: 48,
-        status: 'pending',
-        actions: [
-            { icon: 'close', label: 'Reject', variant: 'stroked' },
-            { icon: 'check', label: 'Accept' },
-        ],
+        status: 'Pending',
+    },
+    {
+        orderID: 1004,
+        restaurant: 'Pizza Palace',
+        customer: 'Tyrion',
+        items: ['Truffle Pasta', 'Soda'],
+        amount: 68,
+        status: 'Pending',
     },
 ];

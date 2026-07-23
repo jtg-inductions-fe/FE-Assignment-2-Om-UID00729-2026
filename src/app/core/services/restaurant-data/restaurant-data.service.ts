@@ -6,6 +6,7 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LOCAL_STORAGE_KEYS } from '@core/constants/local-storage-keys';
 import { authModel } from '@core/models/auth.model';
+import { orderDataModel } from '@features/dashboard/models/orderData.model';
 
 @Injectable({
     providedIn: 'root',
@@ -37,6 +38,13 @@ export class RestaurantDataService {
     getMenu(): menuModel[] {
         if (this.restaurantId.value !== undefined) {
             return restaurantData[this.restaurantId.value].menu;
+        }
+        return [];
+    }
+
+    getOrders(): orderDataModel[] {
+        if (this.restaurantId.value !== undefined) {
+            return restaurantData[this.restaurantId.value].orders;
         }
         return [];
     }
