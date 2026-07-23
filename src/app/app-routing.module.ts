@@ -34,6 +34,14 @@ const routes: Routes = [
                     ),
             },
             {
+                path: 'restaurants',
+                loadChildren: () =>
+                    import('@features/restaurants/restaurants.module').then(
+                        (module) => module.RestaurantsModule,
+                    ),
+                canActivate: [authGuard],
+            },
+            {
                 path: 'error',
                 component: ErrorComponent,
             },
