@@ -1,7 +1,11 @@
 <div class="dashboard">
     <app-heading
         [heading]="'Overview Dashboard'"
-        [subHeading]="'System administrator overview panel. Impersonate owners or view aggregate metrics.'"
+        [subHeading]="
+            isAdmin
+                ? 'System administrator overview panel. Impersonate owners or view aggregate metrics.'
+                : 'Welcome back, restaurant partner! Track your orders and performance details.'
+        "
     >
         <app-autocomplete *ngIf="isAdmin"></app-autocomplete>
     </app-heading>
@@ -60,7 +64,9 @@
                 *ngFor="let item of topOrders"
                 [label]="item.dishName"
                 [subtitle]="item.restaurant"
-                [value]="item.orders + ' orders'"
+                [value]="
+                    item.orders === 1 ? '1 order' : item.orders + ' orders'
+                "
             ></app-item-card>
         </app-card-container>
     </div>

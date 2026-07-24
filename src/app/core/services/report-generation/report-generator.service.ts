@@ -1,10 +1,11 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, DestroyRef } from '@angular/core';
 import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
 import { RestaurantDataService } from '../restaurant-data/restaurant-data.service';
 import { statModel } from '@core/models/stats.model';
 import { AuthService } from '../auth/auth.service';
 import { restaurantData } from '@assets/mock-data/restaurants';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Injectable({
     providedIn: 'root',
@@ -12,6 +13,7 @@ import { restaurantData } from '@assets/mock-data/restaurants';
 export class ReportGeneratorService {
     restaurantDataService = inject(RestaurantDataService);
     authService = inject(AuthService);
+    destroyRef = inject(DestroyRef);
 
     topCustomers(): customersModel[] {
         const customers: customersModel[] =
@@ -46,9 +48,11 @@ export class ReportGeneratorService {
 
     getOwners(): number {
         let ownersCount;
-        this.authService.currUser$.subscribe((data) => {
-            ownersCount = data?.owners?.length;
-        });
+        this.authService.currUser$
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe((data) => {
+                ownersCount = data?.owners?.length;
+            });
         if (ownersCount) {
             return ownersCount;
         }

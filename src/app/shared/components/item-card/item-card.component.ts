@@ -1,21 +1,15 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
-import { AuthService } from '@core/services/auth/auth.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-item-card',
     templateUrl: './item-card.component.html',
     styleUrls: ['./item-card.component.scss'],
 })
-export class ItemCardComponent implements OnInit {
-    authService = inject(AuthService);
+export class ItemCardComponent {
     isAdmin!: boolean;
 
     @Input() label = '';
     @Input() subtitle = '';
     @Input() imageUrl = '';
     @Input() value: string | undefined = '';
-
-    ngOnInit(): void {
-        this.isAdmin = this.authService.getRole() === 'admin';
-    }
 }

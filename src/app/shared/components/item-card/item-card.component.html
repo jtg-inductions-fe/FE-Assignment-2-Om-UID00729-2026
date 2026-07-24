@@ -3,7 +3,7 @@
         <div *ngIf="imageUrl" class="item-card__image-wrapper">
             <img
                 src="{{ imageUrl }}"
-                alt="Customer Profile Picture"
+                [alt]="label ? label + ' profile picture' : ''"
                 class="item-card__image"
             />
         </div>

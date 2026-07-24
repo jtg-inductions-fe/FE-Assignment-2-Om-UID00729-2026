@@ -1,8 +1,9 @@
 export interface sideBarModel {
-    label: string;
+    label?: string;
     routeTo?: string;
     children?: sideBarModel[];
     role?: ('admin' | 'owner')[];
     icon?: string;
-    common: boolean;
+    hasBadge?: boolean;
+    type: 'Link' | 'Divider' | 'Node';
 }

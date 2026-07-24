@@ -5,6 +5,7 @@ import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { ErrorComponent } from './components/error/error.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,7 +14,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTreeModule } from '@angular/material/tree';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
     declarations: [HeaderComponent, ErrorComponent, SidebarComponent],
@@ -28,6 +29,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
         MatToolbarModule,
         MatSidenavModule,
         MatTreeModule,
+        MatBadgeModule,
     ],
     exports: [HeaderComponent, ErrorComponent, SidebarComponent],
 })

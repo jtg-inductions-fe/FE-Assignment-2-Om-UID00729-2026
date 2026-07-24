@@ -1,5 +1,11 @@
 @use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
 
 .heading {
-    @include mixin.flex-set(space-between);
+    @include mixin.flex-set(center, unset, column);
+    gap: func.to-rem(10px);
+
+    @include mixin.respond('tablet') {
+        @include mixin.flex-set(space-between);
+    }
 }
