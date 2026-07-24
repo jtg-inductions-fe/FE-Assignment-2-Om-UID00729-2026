@@ -1,0 +1,23 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+
+.restaurant-list {
+    padding: func.to-rem(vars.$size-xs);
+    gap: func.to-rem(vars.$size-xs);
+
+    @include mixin.flex-set(normal, normal, column);
+
+    &__chips-wrapper {
+        gap: func.to-rem(10px);
+        @include mixin.flex-set;
+    }
+
+    &__button-wrapper {
+        @include mixin.flex-set;
+    }
+
+    &__button {
+        width: 50%;
+    }
+}

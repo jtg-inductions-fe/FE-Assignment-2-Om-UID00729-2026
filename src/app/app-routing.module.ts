@@ -36,7 +36,7 @@ const routes: Routes = [
             import('@features/restaurants/restaurants.module').then(
                 (module) => module.RestaurantsModule,
             ),
-        canActivate: [authGuard],
+        canActivate: [unauthGuard],
     },
     {
         path: '**',
