@@ -19,7 +19,7 @@
         >
             <img
                 src="{{ user.profileImg ? user.profileImg : defaultImg }}"
-                alt="User Profile Picture"
+                alt="{{ user.name }}'s Profile Picture"
                 class="header__profile-img"
             />
         </button>
@@ -28,7 +28,7 @@
             <div class="header__menu-container">
                 <img
                     src="{{ user.profileImg ? user.profileImg : defaultImg }}"
-                    alt="User Profile Picture"
+                    alt="{{ user.name }}'s Profile Picture"
                     class="header__menu-img"
                 />
                 <div class="header__menu-details">

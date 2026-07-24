@@ -5,10 +5,9 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
-        "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "lint": "ng lint",
-        "prettier": "npx prettier --write .",
+        "prettier": "prettier --write .",
         "prepare": "husky",
         "pre-commit": "lint-staged"
     },
