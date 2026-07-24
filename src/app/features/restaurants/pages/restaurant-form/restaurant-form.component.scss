@@ -1,0 +1,8 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+
+.restaurant-form {
+    padding: func.to-rem(vars.$size-xs);
+    gap: func.to-rem(vars.$size-xs);
+}

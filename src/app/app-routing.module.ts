@@ -4,6 +4,7 @@ import { authGuard } from '@core/guards/auth-guard/auth.guard';
 import { unauthGuard } from '@core/guards/unauth-guard/unauth.guard';
 import { ErrorComponent } from '@core/components/error/error.component';
 import { AppLayoutComponent } from '@core/layout/main-layout/main-layout.component';
+import { roleGuard } from '@core/guards/role-guard/role.guard';
 
 const routes: Routes = [
     {
@@ -39,7 +40,7 @@ const routes: Routes = [
                     import('@features/restaurants/restaurants.module').then(
                         (module) => module.RestaurantsModule,
                     ),
-                canActivate: [authGuard],
+                canActivate: [roleGuard],
             },
             {
                 path: 'error',
