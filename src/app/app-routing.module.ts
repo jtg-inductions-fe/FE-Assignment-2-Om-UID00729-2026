@@ -36,11 +36,11 @@ const routes: Routes = [
             },
             {
                 path: 'restaurants',
+                canActivateChild: [roleGuard],
                 loadChildren: () =>
                     import('@features/restaurants/restaurants.module').then(
                         (module) => module.RestaurantsModule,
                     ),
-                canActivate: [roleGuard],
             },
             {
                 path: 'error',

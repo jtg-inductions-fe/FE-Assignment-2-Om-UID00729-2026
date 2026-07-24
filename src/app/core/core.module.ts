@@ -16,6 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatBadgeModule } from '@angular/material/badge';
 import { AppLayoutComponent } from './layout/main-layout/main-layout.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { AppLayoutComponent } from './layout/main-layout/main-layout.component';
         ErrorComponent,
         SidebarComponent,
         AppLayoutComponent,
+        FooterComponent,
     ],
     imports: [
         CommonModule,
@@ -37,6 +39,11 @@ import { AppLayoutComponent } from './layout/main-layout/main-layout.component';
         MatTreeModule,
         MatBadgeModule,
     ],
-    exports: [ErrorComponent],
+    exports: [
+        HeaderComponent,
+        ErrorComponent,
+        SidebarComponent,
+        FooterComponent,
+    ],
 })
 export class CoreModule {}

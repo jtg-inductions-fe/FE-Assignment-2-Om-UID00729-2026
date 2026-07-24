@@ -3,7 +3,7 @@ export const ROUTE_KEYS = {
     DASHBOARD: '/dashboard',
     ERROR: '/error',
     404: '/404',
-    RESTAURANT: '/restaurants',
+    RESTAURANTS: '/restaurants',
     ADD_RESTAURANT: '/restaurants/add',
     EDIT_RESTAURANT: '/restaurants/edit',
 };

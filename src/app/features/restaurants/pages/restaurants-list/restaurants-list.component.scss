@@ -3,7 +3,6 @@
 @use 'abstracts/variables' as vars;
 
 .restaurant-list {
-    padding: func.to-rem(vars.$size-xs);
     gap: func.to-rem(vars.$size-xs);
 
     @include mixin.flex-set(normal, normal, column);

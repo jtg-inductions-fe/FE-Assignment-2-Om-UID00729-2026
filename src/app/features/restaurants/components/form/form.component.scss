@@ -1,0 +1,13 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/variables' as vars;
+@use 'abstracts/functions' as func;
+
+.form {
+    width: 100%;
+    gap: func.to-rem(5px);
+    @include mixin.flex-set(center, center, column);
+
+    &__field {
+        width: 100%;
+    }
+}

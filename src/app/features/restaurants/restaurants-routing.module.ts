@@ -12,6 +12,10 @@ const routes: Routes = [
         path: 'add',
         component: RestaurantFormComponent,
     },
+    {
+        path: 'edit',
+        component: RestaurantFormComponent,
+    },
 ];
 
 @NgModule({

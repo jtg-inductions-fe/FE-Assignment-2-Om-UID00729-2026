@@ -1,10 +1,12 @@
-import { Component, inject } from '@angular/core';
-import { FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Component, Input, inject } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
-// import { ROUTE_KEYS } from '@core/constants/routes-keys';
 import { AuthService } from '@core/services/auth/auth.service';
 import { SnackbarService } from '@core/services/snackbar/snackbar.service';
+
+import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
     selector: 'app-form',
@@ -12,20 +14,18 @@ import { SnackbarService } from '@core/services/snackbar/snackbar.service';
     styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
+    @Input() restaurantForm!: FormGroup;
+    @Input() owners: string[] | undefined = [];
+
     authService = inject(AuthService);
     snackbar = inject(SnackbarService);
     router = inject(Router);
-    formBuilder = inject(FormBuilder);
     hidePassword = true;
-
-    loginForm = this.formBuilder.group({
-        restaurantName: new FormControl('', [Validators.required]),
-        address: new FormControl('', [Validators.required]),
-        email: new FormControl('', [Validators.required, Validators.email]),
-    });
+    addOnBlur = true;
+    readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
     getEmailError(): string {
-        const control = this.loginForm.get('email');
+        const control = this.restaurantForm.get('email');
 
         if (!control || !control.touched || !control.errors) {
             return '';
@@ -35,28 +35,57 @@ export class FormComponent {
             return 'Enter a valid Email';
         }
 
-        if (control?.hasError('required')) {
-            return 'Password is required';
-        }
-
         return '';
     }
 
-    getTextError(): string {
-        const control = this.loginForm.get('password');
+    getTextError(controlName: string): string {
+        const control = this.restaurantForm.get(controlName);
 
         if (!control || !control.touched || !control.errors) {
             return '';
         }
 
         if (control?.hasError('required')) {
-            return 'Password is required';
+            return 'Required field';
         }
-
-        if (control?.hasError('minlength')) {
-            return 'Minimum Length must be 8 Characters';
-        }
-
         return '';
+    }
+
+    add(event: MatChipInputEvent): void {
+        const value = (event.value || '').trim();
+        const control = this.restaurantForm.get('email');
+
+        if (control?.invalid) {
+            control.markAsTouched();
+            return;
+        }
+
+        if (value && this.owners && control?.valid) {
+            this.owners.push(value);
+        }
+        event.chipInput.clear();
+        control?.reset();
+    }
+
+    remove(owner: string): void {
+        const index = this.owners?.indexOf(owner);
+
+        if (index && index >= 0) {
+            this.owners?.splice(index, 1);
+        }
+    }
+
+    edit(owner: string, event: MatChipEditedEvent) {
+        const value = event.value.trim();
+
+        if (!value) {
+            this.remove(owner);
+            return;
+        }
+
+        const index = this.owners?.indexOf(owner);
+        if (index && index >= 0 && this.owners) {
+            this.owners[index] = value;
+        }
     }
 }

@@ -61,7 +61,7 @@ export class LoginComponent {
         }
 
         if (control?.hasError('required')) {
-            return 'Password is required';
+            return 'Email is required';
         }
 
         return '';
