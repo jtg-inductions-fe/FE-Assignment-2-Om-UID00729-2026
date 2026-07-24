@@ -1,7 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '@core/service/auth/auth.service';
-import { SnackbarService } from '@core/service/snackbar/snackbar.service';
+import { Router } from '@angular/router';
+
+import { AuthService } from '@core/services/auth/auth.service';
+import { SnackbarService } from '@core/services/snackbar/snackbar.service';
+
+import { ROUTE_KEYS } from '@core/constants/routes-keys';
+import { LOGIN__MESSAGES } from '@features/auth/constants/login-messages';
 
 @Component({
     selector: 'app-login',
@@ -11,6 +16,7 @@ import { SnackbarService } from '@core/service/snackbar/snackbar.service';
 export class LoginComponent {
     authService = inject(AuthService);
     snackbar = inject(SnackbarService);
+    router = inject(Router);
     hidePassword = true;
 
     loginForm = new FormGroup({
@@ -34,12 +40,13 @@ export class LoginComponent {
         const user = this.authService.login(email, password);
 
         if (!user) {
-            this.snackbar.showError('Invalid Credentials. Please try again');
+            this.snackbar.showWarning(LOGIN__MESSAGES.ERROR);
             this.loginForm.reset();
             return;
         }
 
-        this.snackbar.showSuccess('Logged in Successfully');
+        this.snackbar.showSuccess(LOGIN__MESSAGES.SUCCESS);
+        this.router.navigate([ROUTE_KEYS.DASHBOARD]);
     }
 
     getEmailError(): string {

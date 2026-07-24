@@ -1,0 +1,49 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+
+.header {
+    background-color: white;
+    border-bottom: 1px solid #0000001f;
+    padding-block: func.to-rem(5px);
+
+    @include mixin.flex-set(space-between);
+
+    &__hamburger {
+        display: block;
+    }
+
+    &__profile-btn {
+        border-radius: 50%;
+        padding: 0;
+    }
+
+    &__profile-img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__menu-container {
+        padding: func.to-rem(10px);
+        gap: func.to-rem(10px);
+
+        @include mixin.flex-set(center, center, column);
+    }
+
+    &__menu-img {
+        width: 50%;
+        border-radius: 50%;
+    }
+
+    &__menu-details {
+        gap: func.to-rem(10px);
+
+        @include mixin.flex-set(center, flex-start, column);
+    }
+
+    @include mixin.respond(tablet) {
+        &__hamburger {
+            display: none;
+        }
+    }
+}
