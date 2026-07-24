@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RestaurantsRoutingModule } from './restaurants-routing.module';
-import { RestaurantsListComponent } from './components/restaurants-list/restaurants-list.component';
+import { RestaurantsListComponent } from './pages/restaurants-list/restaurants-list.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { SharedModule } from '@shared/shared.module';
@@ -16,5 +16,6 @@ import { SharedModule } from '@shared/shared.module';
         MatChipsModule,
         SharedModule,
     ],
+    exports: [RestaurantsListComponent],
 })
 export class RestaurantsModule {}

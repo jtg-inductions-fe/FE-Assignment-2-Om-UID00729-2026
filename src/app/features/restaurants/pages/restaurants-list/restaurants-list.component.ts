@@ -26,10 +26,10 @@ export class RestaurantsListComponent implements AfterViewInit, OnInit {
     }
 
     ngAfterViewInit(): void {
-        // this.templates = {
-        //     owners: this.chipTemplate,
-        //     actions: this.buttonTemplate,
-        // };
+        this.templates = {
+            owners: this.chipTemplate,
+            actions: this.buttonTemplate,
+        };
         console.log(this.templates);
     }
 }
