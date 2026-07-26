@@ -2,7 +2,7 @@
     <mat-form-field appearance="outline" class="form__field">
         <mat-label>Restaurant Name</mat-label>
 
-        <input matInput [type]="'text'" formControlName="restaurantName" />
+        <input matInput type="text" formControlName="restaurantName" />
         <mat-error>
             {{ getTextError('restaurantName') }}
         </mat-error>

@@ -71,7 +71,7 @@ export class FormComponent {
     remove(owner: string): void {
         const index = this.owners?.indexOf(owner);
 
-        if (index) {
+        if (index !== undefined && index >= 0) {
             this.owners?.splice(index, 1);
         }
     }
