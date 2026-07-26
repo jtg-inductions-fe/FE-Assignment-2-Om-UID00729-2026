@@ -1,7 +1,7 @@
-@use 'themes/palette' as palette;
+@use 'abstracts/colors' as col;
 
 .autocomplete {
     &__option {
-        background-color: palette.$background;
+        background-color: col.$background;
     }
 }

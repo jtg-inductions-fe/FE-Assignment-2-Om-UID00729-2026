@@ -1,1 +1,1 @@
-export const trayIcons = ['settings', 'public', 'tune'];
+export const TRAY_ICONS = ['settings', 'public', 'tune'];

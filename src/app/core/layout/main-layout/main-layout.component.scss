@@ -1,7 +1,7 @@
 @use 'abstracts/mixins' as mixin;
 @use 'abstracts/functions' as func;
 @use 'abstracts/variables' as vars;
-@use 'themes/palette' as palette;
+@use 'abstracts/colors' as col;
 
 .main-layout {
     height: 100vh;
@@ -18,7 +18,7 @@
     }
 
     &__drawer {
-        background-color: palette.$background;
+        background-color: col.$background;
         min-width: func.to-rem(250px);
         border-right: vars.$border-light;
     }

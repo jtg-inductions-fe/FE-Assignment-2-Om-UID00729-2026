@@ -1,4 +1,4 @@
-@use './palette' as palette;
+@use 'abstracts/colors' as col;
 
 .mat-headline-1,
 .mat-headline-2,
@@ -6,7 +6,7 @@
 .mat-headline-4,
 .mat-headline-5,
 .mat-headline-6 {
-    color: palette.$primary-font-col;
+    color: col.$primary-font-col;
     margin: 0;
 }
 
@@ -15,6 +15,6 @@
 .mat-body-1,
 .mat-body-2,
 .mat-caption {
-    color: palette.$secondary-font-col;
+    color: col.$secondary-font-col;
     margin: 0;
 }

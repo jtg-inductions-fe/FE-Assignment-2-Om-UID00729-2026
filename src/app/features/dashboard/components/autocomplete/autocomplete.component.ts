@@ -12,7 +12,7 @@ import { RESTAURANTS } from '@assets/mock-data/autocomplete-restaurants';
     styleUrls: ['./autocomplete.component.scss'],
 })
 export class AutocompleteComponent implements OnInit {
-    myControl = new FormControl('All Restaurants');
+    myControl = new FormControl(RESTAURANTS.ALL_RESTAURANTS);
     options = Object.values(RESTAURANTS);
     filteredOptions!: Observable<string[]>;
     restaurantDataService = inject(RestaurantDataService);

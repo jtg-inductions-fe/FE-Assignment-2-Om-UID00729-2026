@@ -1,16 +1,16 @@
-@use 'themes/palette' as palette;
+@use 'abstracts/colors' as col;
 
 .success-snackbar {
-    --mdc-snackbar-supporting-text-color: #{palette.$success};
-    --mat-snack-bar-button-color: #{palette.$success};
+    --mdc-snackbar-supporting-text-color: #{col.$success};
+    --mat-snack-bar-button-color: #{col.$success};
 }
 
 .error-snackbar {
-    --mdc-snackbar-supporting-text-color: #{palette.$error};
-    --mat-snack-bar-button-color: #{palette.$error};
+    --mdc-snackbar-supporting-text-color: #{col.$error};
+    --mat-snack-bar-button-color: #{col.$error};
 }
 
 .warning-snackbar {
-    --mdc-snackbar-supporting-text-color: #{palette.$warn};
-    --mat-snack-bar-button-color: #{palette.$warn};
+    --mdc-snackbar-supporting-text-color: #{col.$warn};
+    --mat-snack-bar-button-color: #{col.$warn};
 }

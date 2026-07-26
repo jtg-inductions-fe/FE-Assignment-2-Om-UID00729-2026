@@ -1,4 +1,4 @@
-export const errorData = {
+export const ERROR_DATA = {
     'Internal Error': {
         label: 'Something has gone seriously wrong',
         imgSrc: 'assets/images/InternalError.webp',

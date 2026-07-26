@@ -14,6 +14,7 @@ export class HeaderComponent {
     showMenu = false;
     defaultImg = 'assets/images/default-profile-placeholder.webp';
     isSidebarOpen = false;
+    isLoggedIn = this.authservice.isLoggedIn();
 
     logout() {
         this.authservice.logout();

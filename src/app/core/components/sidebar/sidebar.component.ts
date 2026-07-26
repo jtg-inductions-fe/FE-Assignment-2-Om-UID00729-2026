@@ -4,11 +4,12 @@ import { AuthService } from '@core/services/auth/auth.service';
 import { sideBarModel } from './models/sidebar.model';
 import { sideBarLinks } from '@assets/mock-data/sidebar';
 
-import { trayIcons } from './constants/tray-icons';
+import { TRAY_ICONS } from './constants/tray-icons';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { NestedTreeControl } from '@angular/cdk/tree';
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filterLinks } from './utils/filter-links';
 
 @Component({
     selector: 'app-sidebar',
@@ -20,7 +21,7 @@ export class SidebarComponent implements OnInit {
     dataSource = new MatTreeNestedDataSource<sideBarModel>();
     authService = inject(AuthService);
     destroyRef = inject(DestroyRef);
-    trayIcons = trayIcons;
+    trayIcons = TRAY_ICONS;
 
     ngOnInit(): void {
         this.authService.currUser$
@@ -28,28 +29,7 @@ export class SidebarComponent implements OnInit {
             .subscribe((user) => {
                 const userRole = user?.role;
 
-                const filteredLinks = (
-                    links: sideBarModel[],
-                ): sideBarModel[] => {
-                    return links
-                        .filter((link) => {
-                            if (!link.role || link.role.length === 0) {
-                                return true;
-                            }
-                            return !!userRole && link.role.includes(userRole);
-                        })
-                        .map((link) => {
-                            if (link.children && Array.isArray(link.children)) {
-                                return {
-                                    ...link,
-                                    children: filteredLinks(link.children),
-                                };
-                            }
-                            return link;
-                        });
-                };
-
-                this.dataSource.data = filteredLinks(sideBarLinks);
+                this.dataSource.data = filterLinks(sideBarLinks, userRole);
             });
     }
 

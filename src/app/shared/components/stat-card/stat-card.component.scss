@@ -1,7 +1,7 @@
 @use 'abstracts/mixins' as mixin;
 @use 'abstracts/functions' as func;
 @use 'abstracts/variables' as vars;
-@use 'themes/palette' as palette;
+@use 'abstracts/colors' as col;
 
 .stat-card {
     border: vars.$border-light;
@@ -21,18 +21,18 @@
         @include mixin.flex-set;
 
         &--green {
-            color: palette.$icon-green;
-            background-color: palette.$icon-green-bg;
+            color: col.$icon-green;
+            background-color: col.$icon-green-bg;
         }
 
         &--blue {
-            color: palette.$icon-blue;
-            background-color: palette.$icon-blue-bg;
+            color: col.$icon-blue;
+            background-color: col.$icon-blue-bg;
         }
 
         &--orange {
-            color: palette.$icon-orange;
-            background-color: palette.$icon-orange-bg;
+            color: col.$icon-orange;
+            background-color: col.$icon-orange-bg;
         }
     }
 }

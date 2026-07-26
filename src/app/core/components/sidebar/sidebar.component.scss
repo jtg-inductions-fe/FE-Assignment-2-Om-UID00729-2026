@@ -1,7 +1,7 @@
 @use 'abstracts/functions' as func;
 @use 'abstracts/mixins' as mixin;
 @use 'abstracts/variables' as vars;
-@use 'themes/palette' as palette;
+@use 'abstracts/colors' as col;
 
 .sideNav {
     height: 100%;
@@ -34,13 +34,13 @@
 
         &:hover,
         &:focus {
-            color: palette.$primary;
+            color: col.$primary;
         }
     }
 
     &__drop-down-btn {
         width: 100%;
-        background: palette.$background;
+        background: col.$background;
 
         @include mixin.flex-set(flex-start);
     }
@@ -57,7 +57,7 @@
     }
 
     &__link-active {
-        color: palette.$primary;
+        color: col.$primary;
     }
 
     &__divider {
