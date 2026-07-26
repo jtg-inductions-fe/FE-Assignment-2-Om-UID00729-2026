@@ -3,32 +3,17 @@
 @use 'abstracts/variables' as vars;
 @use 'themes/palette' as palette;
 
-.sidebar {
+.sideNav {
     height: 100%;
-
-    &__container {
-        height: 100%;
-    }
-
-    &__mat-drawer {
-        background-color: palette.$background;
-        min-width: func.to-rem(250px);
-        border-right: vars.$border-light;
-    }
-
-    &__drawer-container {
-        height: inherit;
-        padding-bottom: func.to-rem(10px);
-
-        @include mixin.flex-set(space-between, flex-start, column);
-    }
+    @include mixin.flex-set(center, flex-start, column);
 
     &__links-container,
     &__link-wrapper {
+        flex: 1;
         width: 100%;
     }
 
-    &__nav-tree {
+    &__tree {
         gap: func.to-rem(10px);
 
         @include mixin.flex-set(center, flex-start, column);
@@ -42,7 +27,7 @@
     &__link {
         padding: func.to-rem(vars.$size-xs);
         gap: func.to-rem(10px);
-        width: 100%;
+        flex: 1;
         text-decoration: none;
 
         @include mixin.flex-set(flex-start);
@@ -54,7 +39,6 @@
     }
 
     &__drop-down-btn {
-        padding: 0;
         width: 100%;
         background: palette.$background;
 
@@ -68,10 +52,6 @@
         @include mixin.flex-set(center, center, column);
     }
 
-    &__link {
-        @include mixin.flex-set(space-between);
-    }
-
     &__link-hidden {
         display: none;
     }
@@ -81,7 +61,7 @@
     }
 
     &__divider {
-        width: 100%;
+        flex: 1;
         border-top: vars.$border-light;
     }
 

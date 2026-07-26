@@ -13,7 +13,7 @@
     <div class="dashboard__stat-container">
         <app-stat-card
             class="dashboard__stat-card"
-            *ngFor="let stat of stats"
+            *ngFor="let stat of stats; trackBy: trackByStats"
             [label]="stat.label"
             [value]="stat.value"
             [icon]="stat.icon"
@@ -48,11 +48,11 @@
             class="dashboard__top-customers"
         >
             <app-item-card
-                *ngFor="let customer of topCustomers"
+                *ngFor="let customer of topCustomers; trackBy: trackByCustomers"
                 [label]="customer.name"
                 [subtitle]="customer.email"
-                [imageUrl]="customer.profileImg!"
-                [value]="'$' + customer.totalAmount"
+                [imageUrl]="customer.profileImg ?? defaultImg"
+                [value]="(customer.totalAmount | currency: 'USD') ?? ''"
             ></app-item-card>
         </app-card-container>
 
@@ -61,7 +61,7 @@
             class="dashboard__top-orders"
         >
             <app-item-card
-                *ngFor="let item of topOrders"
+                *ngFor="let item of topOrders; trackBy: trackByOrders"
                 [label]="item.dishName"
                 [subtitle]="item.restaurant"
                 [value]="
@@ -85,10 +85,7 @@
 </div>
 
 <ng-template #statusTemplate let-row>
-    <div
-        class="dashboard__table-status"
-        [ngClass]="'dashboard__table-status--' + row.status"
-    >
+    <div class="dashboard__table-status" [ngClass]="getStatusClass(row.status)">
         {{ row.status }}
     </div>
 </ng-template>
@@ -103,14 +100,14 @@
             (click)="handleReject(row)"
         ></app-button>
         <app-button
-            *ngIf="row.status === 'Pending'"
+            *ngIf="row.status === orderStatus.PENDING"
             [label]="'Accept'"
             [iconLabel]="'check'"
             class="dashboard__table-button"
             (click)="handleAccept(row)"
         ></app-button>
         <app-button
-            *ngIf="row.status === 'Preparing'"
+            *ngIf="row.status === orderStatus.PREPARING"
             [label]="'Complete'"
             [iconLabel]="'alarm'"
             class="dashboard__table-button"

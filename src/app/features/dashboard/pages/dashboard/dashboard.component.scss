@@ -66,13 +66,13 @@
         border-radius: func.to-rem(20px);
         @include mixin.flex-set;
 
-        &--Pending {
-            color: palette.$on-warn;
+        &--pending {
+            color: palette.$warn-text;
             background-color: palette.$warn-light;
         }
 
-        &--Preparing {
-            color: palette.$on-success;
+        &--preparing {
+            color: palette.$sucess-text;
             background-color: palette.$success;
         }
     }

@@ -4,25 +4,25 @@ import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LOCAL_STORAGE_KEYS } from '@core/constants/local-storage-keys';
-import { authModel } from '@core/models/auth.model';
 import { orderDataModel } from '@features/dashboard/models/orderData.model';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class RestaurantDataService {
     localStorageService = inject(LocalStorageService);
-    user: authModel | null = this.localStorageService.get(
-        LOCAL_STORAGE_KEYS.LOGGED_IN_USER,
-    );
+    authService = inject(AuthService);
+    user: number | undefined = this.authService.currUser?.id;
 
-    private restaurantId = new BehaviorSubject<number | undefined>(
-        this.user?.id,
-    );
+    private restaurantId = new BehaviorSubject<number | undefined>(this.user);
 
     currRestaurant$: Observable<number | undefined> =
         this.restaurantId.asObservable();
+
+    getUserId = this.authService.currUser$.subscribe((user) => {
+        this.restaurantId.next(user?.id);
+    });
 
     setRestaurant(id: number) {
         this.restaurantId.next(id);

@@ -16,6 +16,8 @@ import { ordersKeys } from '@assets/mock-data/orderTableColumns';
 import { orderDataModel } from '@features/dashboard/models/orderData.model';
 import { SnackbarService } from '@core/services/snackbar/snackbar.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ORDER_STATUS } from '@features/dashboard/constants/order-status';
+import { STATUS_CLASS_MAP } from '@features/dashboard/constants/status-class-map';
 
 @Component({
     selector: 'app-dashboard',
@@ -36,13 +38,15 @@ export class DashboardComponent implements OnInit {
     templates: Record<string, TemplateRef<unknown>> = {};
     currRole = this.authService.getRole();
     orderColumns = ordersKeys;
+    orderStatus = ORDER_STATUS;
+    statusClassMap = STATUS_CLASS_MAP;
     orderData: orderDataModel[] = [];
+    defaultImg = 'assets/images/default-profile-placeholder.webp';
 
     @ViewChild('statusTemplate', { static: true })
     statusTemplate!: TemplateRef<unknown>;
     @ViewChild('buttonTemplate', { static: true })
     buttonTemplate!: TemplateRef<unknown>;
-    class = 'pending';
 
     ngOnInit(): void {
         this.isAdmin = this.currRole === 'admin';
@@ -74,7 +78,7 @@ export class DashboardComponent implements OnInit {
     }
 
     handleAccept(row: orderDataModel) {
-        row.status = 'Preparing';
+        row.status = ORDER_STATUS.PREPARING;
     }
 
     handleComplete(row: orderDataModel) {
@@ -82,5 +86,21 @@ export class DashboardComponent implements OnInit {
         this.orderData = this.orderData.filter(
             (order) => order.orderID !== row.orderID,
         );
+    }
+
+    trackByStats(index: number, stat: statModel): string {
+        return stat.label;
+    }
+
+    trackByCustomers(index: number, customer: customersModel): string {
+        return customer.email;
+    }
+
+    trackByOrders(index: number, order: menuModel): number {
+        return order.dishId;
+    }
+
+    getStatusClass(status: ORDER_STATUS) {
+        return this.statusClassMap[status];
     }
 }

@@ -15,9 +15,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatBadgeModule } from '@angular/material/badge';
+import { AppLayoutComponent } from './layout/main-layout/main-layout.component';
 
 @NgModule({
-    declarations: [HeaderComponent, ErrorComponent, SidebarComponent],
+    declarations: [
+        HeaderComponent,
+        ErrorComponent,
+        SidebarComponent,
+        AppLayoutComponent,
+    ],
     imports: [
         CommonModule,
         AppRoutingModule,
@@ -31,6 +37,6 @@ import { MatBadgeModule } from '@angular/material/badge';
         MatTreeModule,
         MatBadgeModule,
     ],
-    exports: [HeaderComponent, ErrorComponent, SidebarComponent],
+    exports: [ErrorComponent],
 })
 export class CoreModule {}

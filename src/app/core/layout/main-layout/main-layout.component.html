@@ -1,9 +1,21 @@
 <div class="main-layout">
     <nav>
-        <app-header (sidebartoggle)="sidebar.toggle()"></app-header>
+        <app-header (sidebartoggle)="drawer.toggle()"></app-header>
     </nav>
 
-    <main class="main-layout__content">
-        <app-sidebar #sidebar></app-sidebar>
-    </main>
+    <mat-drawer-container class="main-layout__drawer-wrapper" autosize>
+        <mat-drawer
+            #drawer
+            class="main-layout__drawer"
+            [mode]="isdesktop ? 'side' : 'over'"
+            [opened]="isdesktop"
+            *ngIf="isLoggedIn"
+        >
+            <app-sidebar></app-sidebar>
+        </mat-drawer>
+
+        <mat-drawer-content>
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
 </div>

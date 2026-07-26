@@ -4,14 +4,14 @@ import { mockUsers } from '@assets/mock-data/users';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { LOCAL_STORAGE_KEYS } from '@core/constants/local-storage-keys';
-import { RestaurantDataService } from '../restaurant-data/restaurant-data.service';
+// import { RestaurantDataService } from '../restaurant-data/restaurant-data.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
     localStorageService = inject(LocalStorageService);
-    roleHandler = inject(RestaurantDataService);
+    // roleHandler = inject(RestaurantDataService);
 
     private userSubject = new BehaviorSubject<authModel | null>(
         this.localStorageService.get(LOCAL_STORAGE_KEYS.LOGGED_IN_USER) || null,
@@ -28,7 +28,7 @@ export class AuthService {
         }
 
         this.userSubject.next(loggedInUser);
-        this.roleHandler.setRestaurant(loggedInUser.id);
+        // this.roleHandler.setRestaurant(loggedInUser.id);
 
         this.localStorageService.set(LOCAL_STORAGE_KEYS.LOGGED_IN_USER, {
             id: loggedInUser.id,
@@ -54,5 +54,9 @@ export class AuthService {
 
     getRole() {
         return this.userSubject.value?.role;
+    }
+
+    get currUser(): authModel | null {
+        return this.userSubject.value;
     }
 }

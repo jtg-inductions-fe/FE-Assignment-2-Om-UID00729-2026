@@ -4,6 +4,7 @@ import { map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { RestaurantDataService } from '@core/services/restaurant-data/restaurant-data.service';
+import { RESTAURANTS } from '@assets/mock-data/autocomplete-restaurants';
 
 @Component({
     selector: 'app-autocomplete',
@@ -12,7 +13,7 @@ import { RestaurantDataService } from '@core/services/restaurant-data/restaurant
 })
 export class AutocompleteComponent implements OnInit {
     myControl = new FormControl('All Restaurants');
-    options: string[] = ['All Restaurants', 'Pizza Palace', 'Burger Bistro'];
+    options = Object.values(RESTAURANTS);
     filteredOptions!: Observable<string[]>;
     restaurantDataService = inject(RestaurantDataService);
 
@@ -35,5 +36,9 @@ export class AutocompleteComponent implements OnInit {
         this.restaurantDataService.setRestaurant(
             this.options.indexOf(event.option.value),
         );
+    }
+
+    trackByOption(index: number, option: string): string {
+        return option;
     }
 }

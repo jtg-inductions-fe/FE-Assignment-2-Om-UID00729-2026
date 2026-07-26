@@ -1,5 +1,6 @@
 import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
+import { ORDER_STATUS } from '@features/dashboard/constants/order-status';
 import { orderDataModel } from '@features/dashboard/models/orderData.model';
 
 export const pizzaPalaceCustomers: customersModel[] = [
@@ -52,26 +53,31 @@ export const pizzaPalaceMenu: menuModel[] = [
         dishName: 'Soda',
         restaurant: 'Pizza Palace',
         orders: 4,
+        dishId: 1,
     },
     {
         dishName: 'Margherita Pizza',
         restaurant: 'Pizza Palace',
         orders: 3,
+        dishId: 2,
     },
     {
         dishName: 'Truffle Pasta',
         restaurant: 'Pizza Palace',
         orders: 3,
+        dishId: 3,
     },
     {
         dishName: 'Garlic Bread',
         restaurant: 'Pizza Palace',
         orders: 2,
+        dishId: 4,
     },
     {
         dishName: 'Pepperoni Pizza',
         restaurant: 'Pizza Palace',
         orders: 1,
+        dishId: 5,
     },
 ];
 
@@ -82,7 +88,7 @@ export const pizzaPalaceOrders: orderDataModel[] = [
         customer: 'Dave Miller',
         items: ['Soda', 'Margherita Pizza'],
         amount: 28,
-        status: 'Pending',
+        status: ORDER_STATUS.PENDING,
     },
     {
         orderID: 1003,
@@ -90,7 +96,7 @@ export const pizzaPalaceOrders: orderDataModel[] = [
         customer: 'John Snow',
         items: ['Garlic Bread', 'Pepperoni Pizza'],
         amount: 48,
-        status: 'Pending',
+        status: ORDER_STATUS.PENDING,
     },
     {
         orderID: 1004,
@@ -98,6 +104,6 @@ export const pizzaPalaceOrders: orderDataModel[] = [
         customer: 'Tyrion',
         items: ['Truffle Pasta', 'Soda'],
         amount: 68,
-        status: 'Pending',
+        status: ORDER_STATUS.PENDING,
     },
 ];

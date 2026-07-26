@@ -6,6 +6,8 @@ import { statModel } from '@core/models/stats.model';
 import { AuthService } from '../auth/auth.service';
 import { restaurantData } from '@assets/mock-data/restaurants';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ROLES } from '@core/constants/role';
+import { CurrencyPipe } from '@angular/common';
 
 @Injectable({
     providedIn: 'root',
@@ -14,6 +16,7 @@ export class ReportGeneratorService {
     restaurantDataService = inject(RestaurantDataService);
     authService = inject(AuthService);
     destroyRef = inject(DestroyRef);
+    readonly currencyPipe = inject(CurrencyPipe);
 
     topCustomers(): customersModel[] {
         const customers: customersModel[] =
@@ -67,38 +70,40 @@ export class ReportGeneratorService {
         return [
             {
                 label: 'Total Revenue',
-                value: `$ ${this.totalRevenue()}`,
+                value:
+                    this.currencyPipe.transform(this.totalRevenue(), 'USD') ??
+                    '',
                 icon: 'attach_money',
                 color: 'green',
-                forRole: ['admin', 'owner'],
+                forRole: [ROLES.ADMIN, ROLES.OWNER],
             },
             {
                 label: 'Total Orders',
                 value: this.totalOrders(),
                 icon: 'shopping_cart',
                 color: 'blue',
-                forRole: ['admin', 'owner'],
+                forRole: [ROLES.ADMIN, ROLES.OWNER],
             },
             {
                 label: 'Completed Orders',
                 value: 5,
                 icon: 'check',
                 color: 'orange',
-                forRole: ['admin', 'owner'],
+                forRole: [ROLES.ADMIN, ROLES.OWNER],
             },
             {
                 label: 'Restaurant Owners',
                 value: this.getOwners(),
                 icon: 'local_pizza',
                 color: 'green',
-                forRole: ['owner'],
+                forRole: [ROLES.OWNER],
             },
             {
                 label: 'Active Restaurant',
                 value: this.getRestaurantCount(),
                 icon: 'local_pizza',
                 color: 'green',
-                forRole: ['admin'],
+                forRole: [ROLES.ADMIN],
             },
         ];
     }

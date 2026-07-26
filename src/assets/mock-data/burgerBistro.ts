@@ -1,6 +1,7 @@
 import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
 import { orderDataModel } from '@features/dashboard/models/orderData.model';
+import { ORDER_STATUS } from '@features/dashboard/constants/order-status';
 
 export const burgerBistroCustomers: customersModel[] = [
     {
@@ -46,26 +47,31 @@ export const burgerBistroMenu: menuModel[] = [
         dishName: 'CheeseBurger',
         restaurant: 'Burger Bistro',
         orders: 2,
+        dishId: 1,
     },
     {
         dishName: 'Soda',
         restaurant: 'Burger Bistro',
         orders: 1,
+        dishId: 2,
     },
     {
         dishName: 'French Fries',
         restaurant: 'Burger Bistro',
         orders: 1,
+        dishId: 3,
     },
     {
         dishName: 'Double Cheese Burger',
         restaurant: 'Burger Bistro',
         orders: 2,
+        dishId: 4,
     },
     {
         dishName: 'Zinger Burger',
         restaurant: 'Burger Bistro',
         orders: 3,
+        dishId: 5,
     },
 ];
 
@@ -76,7 +82,7 @@ export const burgerBistroOrders: orderDataModel[] = [
         customer: 'Stephen',
         items: ['Soda', 'Zinger Burger'],
         amount: 28,
-        status: 'Pending',
+        status: ORDER_STATUS.PENDING,
     },
     {
         orderID: 1003,
@@ -84,7 +90,7 @@ export const burgerBistroOrders: orderDataModel[] = [
         customer: 'Laufey',
         items: ['French Fries', 'CheeseBurger'],
         amount: 48,
-        status: 'Pending',
+        status: ORDER_STATUS.PENDING,
     },
     {
         orderID: 1004,
@@ -92,6 +98,6 @@ export const burgerBistroOrders: orderDataModel[] = [
         customer: 'Karen Nelson',
         items: ['Double Cheese Burger', 'Soda'],
         amount: 68,
-        status: 'Pending',
+        status: ORDER_STATUS.PENDING,
     },
 ];

@@ -1,9 +1,11 @@
+import { SIDEBAR_MENU_TYPES } from '../constants/sidebar-menu-types';
+import { ROLES } from '@core/constants/role';
 export interface sideBarModel {
     label?: string;
     routeTo?: string;
     children?: sideBarModel[];
-    role?: ('admin' | 'owner')[];
+    role?: ROLES[];
     icon?: string;
     hasBadge?: boolean;
-    type: 'Link' | 'Divider' | 'Node';
+    type: SIDEBAR_MENU_TYPES;
 }

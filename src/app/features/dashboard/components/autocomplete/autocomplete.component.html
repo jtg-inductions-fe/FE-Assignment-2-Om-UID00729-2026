@@ -1,5 +1,5 @@
 <form class="autocomplete">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
         <mat-label>Filter Restaurants</mat-label>
         <input
             type="text"
@@ -7,7 +7,6 @@
             matInput
             [formControl]="myControl"
             [matAutocomplete]="auto"
-            value="All Restaurants"
         />
         <mat-autocomplete
             autoActiveFirstOption
@@ -15,7 +14,10 @@
             (optionSelected)="onOptionSelected($event)"
         >
             <mat-option
-                *ngFor="let option of filteredOptions | async"
+                *ngFor="
+                    let option of filteredOptions | async;
+                    trackBy: trackByOption
+                "
                 [value]="option"
                 class="autocomplete__option"
             >

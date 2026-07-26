@@ -12,28 +12,17 @@ export class ErrorComponent implements OnInit {
     activatedRoute = inject(ActivatedRoute);
     router = inject(Router);
     routes = ROUTE_KEYS;
-
-    label = '';
-    imgSrc = '';
-    imgAlt = '';
-    message = '';
+    routeData = errorData['Not-Found'];
+    state = this.router.getCurrentNavigation()?.extras.state;
 
     ngOnInit(): void {
-        let routeData = errorData['Not-Found'];
-        const state = history.state;
-
-        if (this.router.url === '/error') {
-            if (!state?.isError) {
-                this.router.navigate(['/dashboard']);
+        if (this.router.url === ROUTE_KEYS.ERROR) {
+            if (!this.state?.['isError']) {
+                this.router.navigate([ROUTE_KEYS.DASHBOARD]);
                 return;
             } else {
-                routeData = errorData['Internal Error'];
+                this.routeData = errorData['Internal Error'];
             }
         }
-
-        this.label = routeData['label'];
-        this.imgSrc = routeData['imgSrc'];
-        this.imgAlt = routeData['imgAlt'];
-        this.message = routeData['message'];
     }
 }
