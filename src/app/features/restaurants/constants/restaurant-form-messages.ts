@@ -1,5 +1,5 @@
 export const RESTAURANT_FORM_MESSAGES = {
-    ERROR: 'DETAILS NOT CORRECT',
-    SUCCESS_ADD: 'RESTAURANT ADDED',
-    SUCCESS_EDIT: 'RESTAURANT DETAILS UPDATED',
+    ERROR: 'Details Not Correct',
+    SUCCESS_ADD: 'Restaurant Added',
+    SUCCESS_EDIT: 'Restaurant Details Updated',
 };

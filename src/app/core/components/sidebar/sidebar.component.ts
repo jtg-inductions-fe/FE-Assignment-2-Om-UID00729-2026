@@ -39,4 +39,8 @@ export class SidebarComponent implements OnInit {
     isDivider = (_: number, node: sideBarModel) => node.type === 'divider';
 
     isLink = (_: number, node: sideBarModel) => node.type === 'link';
+
+    trackByTrayIcons(index: number, icon: string): string {
+        return icon;
+    }
 }

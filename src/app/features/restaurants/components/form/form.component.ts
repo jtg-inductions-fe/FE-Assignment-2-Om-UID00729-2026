@@ -7,6 +7,7 @@ import { AuthService } from '@core/services/auth/auth.service';
 import { SnackbarService } from '@core/services/snackbar/snackbar.service';
 
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
+import { FORM_ERROR_MESSAGES } from '@core/constants/form-error-messages';
 
 @Component({
     selector: 'app-form',
@@ -32,7 +33,7 @@ export class FormComponent {
         }
 
         if (control?.hasError('email')) {
-            return 'Enter a valid Email';
+            return FORM_ERROR_MESSAGES.EMAIL_INVALID;
         }
 
         return '';
@@ -46,7 +47,7 @@ export class FormComponent {
         }
 
         if (control?.hasError('required')) {
-            return 'Required field';
+            return FORM_ERROR_MESSAGES.REQUIRED;
         }
         return '';
     }
@@ -70,7 +71,7 @@ export class FormComponent {
     remove(owner: string): void {
         const index = this.owners?.indexOf(owner);
 
-        if (index && index >= 0) {
+        if (index) {
             this.owners?.splice(index, 1);
         }
     }
@@ -87,5 +88,9 @@ export class FormComponent {
         if (index && index >= 0 && this.owners) {
             this.owners[index] = value;
         }
+    }
+
+    trackByOwners(index: number, owner: string): string {
+        return owner;
     }
 }

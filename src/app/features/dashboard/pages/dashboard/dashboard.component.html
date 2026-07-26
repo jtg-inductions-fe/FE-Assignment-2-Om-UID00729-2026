@@ -1,6 +1,6 @@
 <div class="dashboard">
     <app-heading
-        [heading]="'Overview Dashboard'"
+        heading="Overview Dashboard"
         [subHeading]="
             isAdmin
                 ? 'System administrator overview panel. Impersonate owners or view aggregate metrics.'
@@ -31,20 +31,20 @@
         </div>
         <div class="dashboard__report-buttons">
             <app-button
-                [variant]="'stroked'"
-                [label]="'Top 10 Ordered Items'"
-                [iconLabel]="'bar_chart'"
+                variant="stroked"
+                label="Top 10 Ordered Items"
+                iconLabel="bar_chart"
             ></app-button>
             <app-button
-                [label]="'Frequently Bought Together'"
-                [iconLabel]="'group_work'"
+                label="Frequently Bought Together"
+                iconLabel="group_work"
             ></app-button>
         </div>
     </div>
 
     <div class="dashboard__data-wrapper">
         <app-card-container
-            [heading]="'Top Customers'"
+            heading="Top Customers"
             class="dashboard__top-customers"
         >
             <app-item-card
@@ -56,10 +56,7 @@
             ></app-item-card>
         </app-card-container>
 
-        <app-card-container
-            [heading]="'Top Orders'"
-            class="dashboard__top-orders"
-        >
+        <app-card-container heading="Top Orders" class="dashboard__top-orders">
             <app-item-card
                 *ngFor="let item of topOrders; trackBy: trackByOrders"
                 [label]="item.dishName"
@@ -71,8 +68,8 @@
         </app-card-container>
     </div>
     <app-card-container
-        [heading]="'Active Orders'"
-        [subHeading]="'Manage pending and accepted orders directly from your dashboard.'"
+        heading="Active Orders"
+        subHeading="Manage pending and accepted orders directly from your dashboard."
         *ngIf="!isAdmin"
         class="dashboard__table-wrapper"
     >
@@ -94,22 +91,22 @@
     <div class="dashboard__table-button-wrapper">
         <app-button
             class="dashboard__table-button"
-            [variant]="'stroked'"
-            [label]="'Reject'"
-            [iconLabel]="'close'"
+            variant="stroked"
+            label="Reject"
+            iconLabel="close"
             (click)="handleReject(row)"
         ></app-button>
         <app-button
             *ngIf="row.status === orderStatus.PENDING"
-            [label]="'Accept'"
-            [iconLabel]="'check'"
+            label="Accept"
+            iconLabel="check"
             class="dashboard__table-button"
             (click)="handleAccept(row)"
         ></app-button>
         <app-button
             *ngIf="row.status === orderStatus.PREPARING"
-            [label]="'Complete'"
-            [iconLabel]="'alarm'"
+            label="Complete"
+            iconLabel="alarm"
             class="dashboard__table-button"
             (click)="handleComplete(row)"
         ></app-button>

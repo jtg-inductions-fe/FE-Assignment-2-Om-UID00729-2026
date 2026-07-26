@@ -5,6 +5,7 @@
 .restaurant-form {
     flex: 1;
     gap: func.to-rem(vars.$size-xs);
+    padding: func.to-rem(vars.$size-xs);
 
     @include mixin.flex-set(unset, unset, column);
 

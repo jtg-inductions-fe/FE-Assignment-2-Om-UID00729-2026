@@ -4,6 +4,7 @@
 
 .restaurant-list {
     gap: func.to-rem(vars.$size-xs);
+    padding: func.to-rem(vars.$size-xs);
 
     @include mixin.flex-set(normal, normal, column);
 

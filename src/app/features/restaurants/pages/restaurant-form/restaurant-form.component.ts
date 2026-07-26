@@ -12,13 +12,14 @@ import { Router } from '@angular/router';
 })
 export class RestaurantFormComponent implements OnInit {
     routeKeys = ROUTE_KEYS;
-    isEdit = history.state.isEdit;
-    editData = history.state.data;
     restaurantForm!: FormGroup;
     snackbar = inject(SnackbarService);
     formBuilder = inject(FormBuilder);
     router = inject(Router);
     owners: string[] = [];
+
+    isEdit = this.router.getCurrentNavigation()?.extras.state?.['isEdit'];
+    editData = this.router.getCurrentNavigation()?.extras.state?.['data'];
 
     ngOnInit(): void {
         this.restaurantForm = this.formBuilder.group({

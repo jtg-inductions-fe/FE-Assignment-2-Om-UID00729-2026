@@ -1,10 +1,10 @@
 <div class="restaurant-form">
     <div class="restaurant-form__back-btn">
         <app-button
-            [label]="'Back'"
-            [variant]="'stroked'"
-            [iconLabel]="'arrow_back'"
-            routerLink="{{ routeKeys.RESTAURANTS }}"
+            label="Back"
+            variant="stroked"
+            iconLabel="arrow_back"
+            [routerLink]="routeKeys.RESTAURANTS"
         ></app-button>
     </div>
     <app-heading
@@ -25,13 +25,13 @@
         </p>
         <div class="restaurant-form__button-wrapper">
             <app-button
-                [label]="'Cancel'"
-                [variant]="'stroked'"
-                routerLink="{{ routeKeys.RESTAURANTS }}"
+                label="Cancel"
+                variant="stroked"
+                routerLink="routeKeys.RESTAURANTS"
             ></app-button>
             <app-button
                 [label]="isEdit ? 'SAVE RESTAURANT' : 'CREATE RESTAURANT'"
-                [iconLabel]="'save'"
+                iconLabel="save"
                 (click)="handleFormSubmit()"
             ></app-button>
         </div>

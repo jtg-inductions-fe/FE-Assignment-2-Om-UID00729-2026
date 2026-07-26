@@ -77,7 +77,7 @@
         <a
             routerLink="/settings"
             class="sideNav__link mat-headline-4"
-            *ngFor="let icon of trayIcons"
+            *ngFor="let icon of trayIcons; trackBy: trackByTrayIcons"
         >
             <mat-icon>{{ icon }}</mat-icon>
         </a>
