@@ -22,4 +22,15 @@
         min-width: func.to-rem(250px);
         border-right: vars.$border-light;
     }
+
+    &__content {
+        padding: func.to-rem(vars.$size-xs);
+        gap: func.to-rem(vars.$size-xs);
+
+        @include mixin.flex-set(normal, normal, column);
+    }
+
+    &__outlet {
+        flex: 1;
+    }
 }

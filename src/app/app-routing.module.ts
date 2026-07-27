@@ -18,7 +18,6 @@ const routes: Routes = [
                     import('@features/auth/auth.module').then(
                         (module) => module.AuthModule,
                     ),
-                canActivate: [authGuard],
             },
         ],
     },
@@ -28,7 +27,7 @@ const routes: Routes = [
         canActivateChild: [unauthGuard],
         children: [
             {
-                path: 'dashboard',
+                path: '',
                 loadChildren: () =>
                     import('@features/dashboard/dashboard.module').then(
                         (module) => module.DashboardModule,

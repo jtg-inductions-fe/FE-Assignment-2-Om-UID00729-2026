@@ -4,8 +4,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'dashboard',
         component: DashboardComponent,
+    },
+    {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full',
     },
 ];
 

@@ -1,16 +1,19 @@
 @use 'abstracts/colors' as col;
 
 .success-snackbar {
-    --mdc-snackbar-supporting-text-color: #{col.$success};
-    --mat-snack-bar-button-color: #{col.$success};
+    --mdc-snackbar-supporting-text-color: #{col.$success-text};
+    --mdc-snackbar-container-color: #{col.$success};
+    --mat-snack-bar-button-color: #{col.$success-text};
 }
 
 .error-snackbar {
-    --mdc-snackbar-supporting-text-color: #{col.$error};
-    --mat-snack-bar-button-color: #{col.$error};
+    --mdc-snackbar-supporting-text-color: #{col.$error-text};
+    --mdc-snackbar-container-color: #{col.$error};
+    --mat-snack-bar-button-color: #{col.$error-text};
 }
 
 .warning-snackbar {
-    --mdc-snackbar-supporting-text-color: #{col.$warn};
-    --mat-snack-bar-button-color: #{col.$warn};
+    --mdc-snackbar-supporting-text-color: #{col.$warn-text};
+    --mdc-snackbar-container-color: #{col.$warn};
+    --mat-snack-bar-button-color: #{col.$warn-text};
 }

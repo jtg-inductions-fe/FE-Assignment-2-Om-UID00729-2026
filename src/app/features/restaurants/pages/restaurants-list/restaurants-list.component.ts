@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { mockUsers } from '@assets/mock-data/users';
 import { ROUTE_KEYS } from '@core/constants/routes-keys';
-import { restaurantKeys } from '@assets/mock-data/restaurantColumns';
+import { restaurantKeys } from './configs/restaurant-columns-config';
 import { ROLES } from '@core/constants/role';
 
 @Component({

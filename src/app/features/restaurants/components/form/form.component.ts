@@ -85,7 +85,7 @@ export class FormComponent {
         }
 
         const index = this.owners?.indexOf(owner);
-        if (index && index >= 0 && this.owners) {
+        if (index !== undefined && index >= 0 && this.owners) {
             this.owners[index] = value;
         }
     }

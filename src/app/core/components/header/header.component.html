@@ -8,7 +8,7 @@
     >
         <mat-icon>menu</mat-icon>
     </button>
-    <a routerLink="/">
+    <a routerLink="/" *ngIf="isdesktop || !isLoggedIn">
         <img src="assets/favicon.svg" alt="Company Logo" />
     </a>
     <ng-container *ngIf="authservice.currUser$ | async as user">
