@@ -1,1 +1,117 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <app-heading
+        [heading]="'Overview Dashboard'"
+        [subHeading]="
+            isAdmin
+                ? 'System administrator overview panel. Impersonate owners or view aggregate metrics.'
+                : 'Welcome back, restaurant partner! Track your orders and performance details.'
+        "
+    >
+        <app-autocomplete *ngIf="isAdmin"></app-autocomplete>
+    </app-heading>
+
+    <div class="dashboard__stat-container">
+        <app-stat-card
+            class="dashboard__stat-card"
+            *ngFor="let stat of stats; trackBy: trackByStats"
+            [label]="stat.label"
+            [value]="stat.value"
+            [icon]="stat.icon"
+            [color]="stat.color"
+        ></app-stat-card>
+    </div>
+
+    <div class="dashboard__report-content-wrapper">
+        <div class="dashboard__report-text-content">
+            <h5 class="mat-headline-5">Report Generator</h5>
+            <p class="mat-subtitle-2">
+                Generate performance reports for the selected restaurant
+                context.
+            </p>
+        </div>
+        <div class="dashboard__report-buttons">
+            <app-button
+                [variant]="'stroked'"
+                [label]="'Top 10 Ordered Items'"
+                [iconLabel]="'bar_chart'"
+            ></app-button>
+            <app-button
+                [label]="'Frequently Bought Together'"
+                [iconLabel]="'group_work'"
+            ></app-button>
+        </div>
+    </div>
+
+    <div class="dashboard__data-wrapper">
+        <app-card-container
+            [heading]="'Top Customers'"
+            class="dashboard__top-customers"
+        >
+            <app-item-card
+                *ngFor="let customer of topCustomers; trackBy: trackByCustomers"
+                [label]="customer.name"
+                [subtitle]="customer.email"
+                [imageUrl]="customer.profileImg ?? defaultImg"
+                [value]="(customer.totalAmount | currency: 'USD') ?? ''"
+            ></app-item-card>
+        </app-card-container>
+
+        <app-card-container
+            [heading]="'Top Orders'"
+            class="dashboard__top-orders"
+        >
+            <app-item-card
+                *ngFor="let item of topOrders; trackBy: trackByOrders"
+                [label]="item.dishName"
+                [subtitle]="item.restaurant"
+                [value]="
+                    item.orders === 1 ? '1 order' : item.orders + ' orders'
+                "
+            ></app-item-card>
+        </app-card-container>
+    </div>
+    <app-card-container
+        [heading]="'Active Orders'"
+        [subHeading]="'Manage pending and accepted orders directly from your dashboard.'"
+        *ngIf="!isAdmin"
+        class="dashboard__table-wrapper"
+    >
+        <app-table
+            [dataSource]="orderData"
+            [columns]="orderColumns"
+            [templates]="templates"
+        ></app-table>
+    </app-card-container>
+</div>
+
+<ng-template #statusTemplate let-row>
+    <div class="dashboard__table-status" [ngClass]="getStatusClass(row.status)">
+        {{ row.status }}
+    </div>
+</ng-template>
+
+<ng-template #buttonTemplate let-row>
+    <div class="dashboard__table-button-wrapper">
+        <app-button
+            class="dashboard__table-button"
+            [variant]="'stroked'"
+            [label]="'Reject'"
+            [iconLabel]="'close'"
+            (click)="handleReject(row)"
+        ></app-button>
+        <app-button
+            *ngIf="row.status === orderStatus.PENDING"
+            [label]="'Accept'"
+            [iconLabel]="'check'"
+            class="dashboard__table-button"
+            (click)="handleAccept(row)"
+        ></app-button>
+        <app-button
+            *ngIf="row.status === orderStatus.PREPARING"
+            [label]="'Complete'"
+            [iconLabel]="'alarm'"
+            class="dashboard__table-button"
+            (click)="handleComplete(row)"
+        ></app-button>
+    </div>
+</ng-template>

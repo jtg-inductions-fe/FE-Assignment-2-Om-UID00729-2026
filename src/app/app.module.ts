@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from '@core/core.module';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ErrorHandlerService } from '@core/services/error-handler/error-handler.service';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
     declarations: [AppComponent],
@@ -18,5 +20,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         CoreModule,
     ],
     bootstrap: [AppComponent],
+    providers: [
+        {
+            provide: ErrorHandler,
+            useClass: ErrorHandlerService,
+        },
+        CurrencyPipe,
+    ],
 })
 export class AppModule {}

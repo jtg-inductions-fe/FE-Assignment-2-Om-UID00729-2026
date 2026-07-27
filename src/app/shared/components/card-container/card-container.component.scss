@@ -1,0 +1,11 @@
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+
+.card-container {
+    border: vars.$border-light;
+    border-radius: func.to-rem(12px);
+
+    &__content {
+        overflow: auto;
+    }
+}

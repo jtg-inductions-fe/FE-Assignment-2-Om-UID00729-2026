@@ -1,0 +1,103 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/variables' as vars;
+@use 'abstracts/functions' as func;
+@use 'abstracts/colors' as col;
+
+.dashboard {
+    width: 100%;
+    height: 100%;
+    padding: func.to-rem(vars.$size-xs);
+    gap: func.to-rem(vars.$size-sm);
+
+    @include mixin.flex-set(unset, unset, column);
+
+    &__data-wrapper {
+        gap: func.to-rem(vars.$size-xs);
+
+        @include mixin.flex-set(center, unset, column);
+    }
+
+    &__top-customers {
+        flex: 0.35;
+    }
+
+    &__top-orders {
+        flex: 0.65;
+    }
+
+    &__stat-container {
+        width: 100%;
+        display: grid;
+        gap: func.to-rem(12px);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__report-content-wrapper {
+        border: vars.$border-light;
+        border-radius: func.to-rem(12px);
+        padding: func.to-rem(10px);
+        gap: func.to-rem(10px);
+
+        @include mixin.flex-set(space-between, normal, column);
+    }
+
+    &__report-text-content {
+        text-align: center;
+    }
+
+    &__report-buttons {
+        gap: func.to-rem(8px);
+
+        @include mixin.flex-set(space-between, normal, column);
+    }
+
+    &__table-wrapper {
+        width: 100%;
+    }
+
+    &__table-button-wrapper {
+        gap: func.to-rem(10px);
+
+        @include mixin.flex-set;
+    }
+
+    &__table-status {
+        padding: func.to-rem(5px);
+        border-radius: func.to-rem(20px);
+        @include mixin.flex-set;
+
+        &--pending {
+            color: col.$warn-text;
+            background-color: col.$warn-light;
+        }
+
+        &--preparing {
+            color: col.$sucess-text;
+            background-color: col.$success;
+        }
+    }
+
+    @include mixin.respond('desktop-sm') {
+        &__stat-container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        &__report-content-wrapper {
+            gap: 0;
+
+            @include mixin.flex-set(space-between);
+        }
+
+        &__report-buttons {
+            @include mixin.flex-set(space-between);
+        }
+
+        &__data-wrapper {
+            @include mixin.flex-set;
+        }
+
+        &__report-text-content {
+            text-align: start;
+        }
+    }
+}

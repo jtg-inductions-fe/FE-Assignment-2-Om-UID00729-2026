@@ -1,0 +1,24 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+
+.item-card {
+    width: 100%;
+    border-bottom: vars.$border-light;
+    min-height: func.to-rem(77px);
+
+    &__container {
+        gap: func.to-rem(vars.$size-xs);
+
+        @include mixin.flex-set;
+    }
+
+    &__image {
+        width: func.to-rem(40px);
+        border-radius: 50%;
+    }
+
+    &__details {
+        flex: 1;
+    }
+}

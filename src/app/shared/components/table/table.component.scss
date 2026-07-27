@@ -1,0 +1,7 @@
+@use 'abstracts/mixins' as mixin;
+
+.table {
+    &__data {
+        text-align: center;
+    }
+}

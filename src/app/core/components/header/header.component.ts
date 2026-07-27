@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Output, inject, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@core/services/auth/auth.service';
 import { ROUTE_KEYS } from '@core/constants/routes-keys';
@@ -13,9 +13,17 @@ export class HeaderComponent {
     router = inject(Router);
     showMenu = false;
     defaultImg = 'assets/images/default-profile-placeholder.webp';
+    isSidebarOpen = false;
+    isLoggedIn = this.authservice.isLoggedIn();
 
     logout() {
         this.authservice.logout();
         this.router.navigate([ROUTE_KEYS.LOGIN]);
+    }
+
+    @Output() sidebartoggle = new EventEmitter<void>();
+
+    handleHamburgerClick() {
+        this.sidebartoggle.emit();
     }
 }

@@ -1,0 +1,16 @@
+<mat-card class="item-card">
+    <mat-card-content class="item-card__container">
+        <div *ngIf="imageUrl" class="item-card__image-wrapper">
+            <img
+                src="{{ imageUrl }}"
+                [alt]="label ? label + ' profile picture' : ''"
+                class="item-card__image"
+            />
+        </div>
+        <div class="item-card__details">
+            <h6 class="mat-headline-6 line-clamp-1">{{ label }}</h6>
+            <p class="mat-subtitle-2 line-clamp-1">{{ subtitle }}</p>
+        </div>
+        <h6 class="mat-headline-6 line-clamp-1">{{ value }}</h6>
+    </mat-card-content>
+</mat-card>

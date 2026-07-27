@@ -1,0 +1,110 @@
+import { Injectable, inject, DestroyRef } from '@angular/core';
+import { customersModel } from '@core/models/customers.model';
+import { menuModel } from '@core/models/menu.model';
+import { RestaurantDataService } from '../restaurant-data/restaurant-data.service';
+import { statModel } from '@core/models/stats.model';
+import { AuthService } from '../auth/auth.service';
+import { restaurantData } from '@assets/mock-data/restaurants';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ROLES } from '@core/constants/role';
+import { CurrencyPipe } from '@angular/common';
+
+@Injectable({
+    providedIn: 'root',
+})
+export class ReportGeneratorService {
+    restaurantDataService = inject(RestaurantDataService);
+    authService = inject(AuthService);
+    destroyRef = inject(DestroyRef);
+    readonly currencyPipe = inject(CurrencyPipe);
+
+    topCustomers(): customersModel[] {
+        const customers: customersModel[] =
+            this.restaurantDataService.getCustomers();
+
+        return customers
+            .sort((a, b) => b.totalAmount - a.totalAmount)
+            .slice(0, 5);
+    }
+
+    topOrders(): menuModel[] {
+        const menuItems: menuModel[] = this.restaurantDataService.getMenu();
+
+        return menuItems.sort((a, b) => b.orders - a.orders).slice(0, 5);
+    }
+
+    totalRevenue(): number {
+        const customers: customersModel[] =
+            this.restaurantDataService.getCustomers();
+
+        return customers.reduce(
+            (acc, customer) => acc + customer.totalAmount,
+            0,
+        );
+    }
+
+    totalOrders(): number {
+        const menuItems: menuModel[] = this.restaurantDataService.getMenu();
+
+        return menuItems.reduce((acc, item) => acc + item.orders, 0);
+    }
+
+    getOwners(): number {
+        let ownersCount;
+        this.authService.currUser$
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe((data) => {
+                ownersCount = data?.owners?.length;
+            });
+        if (ownersCount) {
+            return ownersCount;
+        }
+        return 0;
+    }
+
+    getRestaurantCount(): number {
+        return restaurantData.length - 1;
+    }
+
+    getStats(): statModel[] {
+        return [
+            {
+                label: 'Total Revenue',
+                value:
+                    this.currencyPipe.transform(this.totalRevenue(), 'USD') ??
+                    '',
+                icon: 'attach_money',
+                color: 'green',
+                forRole: [ROLES.ADMIN, ROLES.OWNER],
+            },
+            {
+                label: 'Total Orders',
+                value: this.totalOrders(),
+                icon: 'shopping_cart',
+                color: 'blue',
+                forRole: [ROLES.ADMIN, ROLES.OWNER],
+            },
+            {
+                label: 'Completed Orders',
+                value: 5,
+                icon: 'check',
+                color: 'orange',
+                forRole: [ROLES.ADMIN, ROLES.OWNER],
+            },
+            {
+                label: 'Restaurant Owners',
+                value: this.getOwners(),
+                icon: 'local_pizza',
+                color: 'green',
+                forRole: [ROLES.OWNER],
+            },
+            {
+                label: 'Active Restaurant',
+                value: this.getRestaurantCount(),
+                icon: 'local_pizza',
+                color: 'green',
+                forRole: [ROLES.ADMIN],
+            },
+        ];
+    }
+}

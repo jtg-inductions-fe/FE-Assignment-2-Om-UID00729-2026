@@ -1,0 +1,38 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+@use 'abstracts/colors' as col;
+
+.stat-card {
+    border: vars.$border-light;
+    border-radius: func.to-rem(12px);
+
+    &__container {
+        padding: func.to-rem(10px);
+
+        @include mixin.flex-set(space-between);
+    }
+
+    &__icon {
+        width: func.to-rem(40px);
+        height: func.to-rem(40px);
+        font-size: func.to-rem(vars.$size-xl);
+
+        @include mixin.flex-set;
+
+        &--green {
+            color: col.$icon-green;
+            background-color: col.$icon-green-bg;
+        }
+
+        &--blue {
+            color: col.$icon-blue;
+            background-color: col.$icon-blue-bg;
+        }
+
+        &--orange {
+            color: col.$icon-orange;
+            background-color: col.$icon-orange-bg;
+        }
+    }
+}

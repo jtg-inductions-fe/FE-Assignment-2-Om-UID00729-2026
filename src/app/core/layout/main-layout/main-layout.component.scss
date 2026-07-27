@@ -1,0 +1,25 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+@use 'abstracts/colors' as col;
+
+.main-layout {
+    height: 100vh;
+
+    @include mixin.flex-set(normal, normal, column);
+
+    &__content {
+        flex: 1;
+        min-height: 0;
+    }
+
+    &__drawer-wrapper {
+        height: 100%;
+    }
+
+    &__drawer {
+        background-color: col.$background;
+        min-width: func.to-rem(250px);
+        border-right: vars.$border-light;
+    }
+}
