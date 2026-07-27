@@ -4,14 +4,13 @@
 @use 'abstracts/colors' as col;
 
 .sideNav {
-    height: 100%;
     @include mixin.flex-set(center, flex-start, column);
 
     &__links-container,
     &__link-wrapper {
         flex: 1;
         width: 100%;
-        padding: func.to-rem(vars.$size-xs);
+        padding: func.to-rem(6px) func.to-rem(vars.$size-xs);
     }
 
     &__tree {
@@ -30,6 +29,7 @@
         gap: func.to-rem(10px);
         flex: 1;
         text-decoration: none;
+        padding-block: func.to-rem(10px);
 
         @include mixin.flex-set(flex-start);
 
@@ -69,7 +69,12 @@
 
     &__bottom-tray {
         align-self: center;
-        gap: func.to-rem(vars.$size-md);
+        gap: func.to-rem(vars.$size-lg);
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        background: col.$background;
+        padding-block: func.to-rem(10px);
 
         @include mixin.flex-set;
     }
