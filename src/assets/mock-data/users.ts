@@ -19,6 +19,7 @@ export const mockUsers: authModel[] = [
         profileImg: 'assets/images/profile-placeholder-2.webp',
         restaurantName: 'Pizza Palace',
         owners: ['owner1@jtg.com', 'owner2@jtg.com'],
+        address: '123 Pepperoni Rd, Naples',
     },
     {
         id: 2,
@@ -29,5 +30,6 @@ export const mockUsers: authModel[] = [
         profileImg: 'assets/images/profile-placeholder-3.webp',
         restaurantName: 'Burger Bistro',
         owners: ['owner3@jtg.com', 'owner4@jtg.com'],
+        address: '456 Patty Ave, Austin',
     },
 ];

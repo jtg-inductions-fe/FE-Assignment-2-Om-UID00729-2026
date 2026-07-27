@@ -87,7 +87,7 @@ export const pizzaPalaceOrders: orderDataModel[] = [
         restaurant: 'Pizza Palace',
         customer: 'Dave Miller',
         items: ['Soda', 'Margherita Pizza'],
-        amount: 28,
+        amount: '$28',
         status: ORDER_STATUS.PENDING,
     },
     {
@@ -95,7 +95,7 @@ export const pizzaPalaceOrders: orderDataModel[] = [
         restaurant: 'Pizza Palace',
         customer: 'John Snow',
         items: ['Garlic Bread', 'Pepperoni Pizza'],
-        amount: 48,
+        amount: '$48',
         status: ORDER_STATUS.PENDING,
     },
     {
@@ -103,7 +103,7 @@ export const pizzaPalaceOrders: orderDataModel[] = [
         restaurant: 'Pizza Palace',
         customer: 'Tyrion',
         items: ['Truffle Pasta', 'Soda'],
-        amount: 68,
+        amount: '$68',
         status: ORDER_STATUS.PENDING,
     },
 ];

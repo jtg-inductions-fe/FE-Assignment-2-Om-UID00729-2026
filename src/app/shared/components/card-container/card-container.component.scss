@@ -4,6 +4,7 @@
 .card-container {
     border: vars.$border-light;
     border-radius: func.to-rem(12px);
+    box-shadow: 0 5px 10px 2px #0000001f;
 
     &__content {
         overflow: auto;

@@ -1,0 +1,20 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+
+.footer {
+    width: 100%;
+    gap: func.to-rem(vars.$size-md);
+
+    @include mixin.flex-set(unset, unset, column);
+
+    &__links {
+        gap: func.to-rem(vars.$size-md);
+        @include mixin.flex-set;
+    }
+
+    @include mixin.respond('tablet') {
+        padding: func.to-rem(vars.$size-2xl) func.to-rem(vars.$size-xl);
+        @include mixin.flex-set(space-between);
+    }
+}

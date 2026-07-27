@@ -1,0 +1,41 @@
+<div class="restaurant-list">
+    <app-heading
+        heading="Active Orders"
+        subHeading="Manage pending and accepted orders directly from your dashboard."
+    >
+        <app-button
+            label="ADD RESTAURANT"
+            iconLabel="add"
+            routerLink="{{ routeKeys.ADD_RESTAURANT }}"
+            [state]="{ isEdit: false }"
+        ></app-button
+    ></app-heading>
+    <app-card-container class="dashboard__table-wrapper">
+        <app-table
+            [dataSource]="restaurantList"
+            [columns]="restaurantColumns"
+            [templates]="templates"
+        ></app-table>
+    </app-card-container>
+</div>
+
+<ng-template #chipTemplate let-row>
+    <div class="restaurant-list__chips-wrapper">
+        <mat-chip *ngFor="let owner of row.owners; trackby: trackbyOwners">{{
+            owner
+        }}</mat-chip>
+    </div>
+</ng-template>
+
+<ng-template #buttonTemplate let-row>
+    <div class="restaurant-list__button-wrapper">
+        <app-button
+            class="restaurant-list__button"
+            label="Edit"
+            iconLabel="edit"
+            variant="stroked"
+            routerLink="{{ routeKeys.EDIT_RESTAURANT }}"
+            [state]="{ isEdit: true, data: row }"
+        ></app-button>
+    </div>
+</ng-template>

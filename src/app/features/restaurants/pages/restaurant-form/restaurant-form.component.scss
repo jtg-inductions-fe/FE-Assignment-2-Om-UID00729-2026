@@ -1,0 +1,27 @@
+@use 'abstracts/mixins' as mixin;
+@use 'abstracts/functions' as func;
+@use 'abstracts/variables' as vars;
+
+.restaurant-form {
+    flex: 1;
+    gap: func.to-rem(vars.$size-xs);
+    padding: func.to-rem(vars.$size-xs);
+
+    @include mixin.flex-set(unset, unset, column);
+
+    &__back-btn {
+        width: 30%;
+    }
+
+    &__button-wrapper {
+        justify-self: end;
+        gap: func.to-rem(10px);
+        @include mixin.flex-set;
+    }
+
+    @include mixin.respond('tablet') {
+        &__back-btn {
+            width: 10%;
+        }
+    }
+}

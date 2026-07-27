@@ -7,6 +7,7 @@ import { SnackbarService } from '@core/services/snackbar/snackbar.service';
 
 import { ROUTE_KEYS } from '@core/constants/routes-keys';
 import { LOGIN__MESSAGES } from '@features/auth/constants/login-messages';
+import { FORM_ERROR_MESSAGES } from '@core/constants/form-error-messages';
 
 @Component({
     selector: 'app-login',
@@ -57,11 +58,11 @@ export class LoginComponent {
         }
 
         if (control?.hasError('email')) {
-            return 'Enter a valid Email';
+            return FORM_ERROR_MESSAGES.EMAIL_INVALID;
         }
 
         if (control?.hasError('required')) {
-            return 'Password is required';
+            return FORM_ERROR_MESSAGES.EMAIL_REQUIRED;
         }
 
         return '';
@@ -75,11 +76,11 @@ export class LoginComponent {
         }
 
         if (control?.hasError('required')) {
-            return 'Password is required';
+            return FORM_ERROR_MESSAGES.PASSWORD_REQUIRED;
         }
 
         if (control?.hasError('minlength')) {
-            return 'Minimum Length must be 8 Characters';
+            return FORM_ERROR_MESSAGES.MIN_LENGTH;
         }
 
         return '';

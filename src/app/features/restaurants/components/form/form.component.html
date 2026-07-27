@@ -1,0 +1,49 @@
+<form [formGroup]="restaurantForm" class="form">
+    <mat-form-field appearance="outline" class="form__field">
+        <mat-label>Restaurant Name</mat-label>
+
+        <input matInput type="text" formControlName="restaurantName" />
+        <mat-error>
+            {{ getTextError('restaurantName') }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form__field">
+        <mat-label>Address</mat-label>
+
+        <input matInput type="text" formControlName="address" />
+        <mat-error>
+            {{ getTextError('address') }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form__field">
+        <mat-label>Owners (emails)</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter Owners">
+            <mat-chip-row
+                highlighted
+                color="primary"
+                *ngFor="let owner of owners; trackBy: trackByOwners"
+                (removed)="remove(owner)"
+                [editable]="true"
+                (edited)="edit(owner, $event)"
+                [aria-description]="'press enter to edit ' + owner"
+            >
+                {{ owner }}
+                <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip-row>
+            <input
+                type="email"
+                placeholder="Type Owner Email and press Enter"
+                formControlName="email"
+                [matChipInputFor]="chipGrid"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)"
+            />
+            <mat-error>{{ getEmailError() }}</mat-error>
+        </mat-chip-grid>
+    </mat-form-field>
+</form>

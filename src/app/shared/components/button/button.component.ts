@@ -12,5 +12,5 @@ export class ButtonComponent {
     @Input() disabled = false;
     @Input() type: 'submit' | 'button' | 'reset' = 'button';
     @Input() label = '';
-    @Input() iconLabel? = '';
+    @Input() iconLabel = '';
 }

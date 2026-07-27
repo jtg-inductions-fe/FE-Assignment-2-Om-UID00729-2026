@@ -81,7 +81,7 @@ export const burgerBistroOrders: orderDataModel[] = [
         restaurant: 'Burger Bistro',
         customer: 'Stephen',
         items: ['Soda', 'Zinger Burger'],
-        amount: 28,
+        amount: '$28',
         status: ORDER_STATUS.PENDING,
     },
     {
@@ -89,7 +89,7 @@ export const burgerBistroOrders: orderDataModel[] = [
         restaurant: 'Burger Bistro',
         customer: 'Laufey',
         items: ['French Fries', 'CheeseBurger'],
-        amount: 48,
+        amount: '$48',
         status: ORDER_STATUS.PENDING,
     },
     {
@@ -97,7 +97,7 @@ export const burgerBistroOrders: orderDataModel[] = [
         restaurant: 'Burger Bistro',
         customer: 'Karen Nelson',
         items: ['Double Cheese Burger', 'Soda'],
-        amount: 68,
+        amount: '$68',
         status: ORDER_STATUS.PENDING,
     },
 ];

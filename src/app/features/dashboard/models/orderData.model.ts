@@ -5,6 +5,6 @@ export interface orderDataModel {
     restaurant: string;
     customer: string;
     items?: string[];
-    amount: number;
+    amount: string;
     status?: ORDER_STATUS;
 }

@@ -70,4 +70,15 @@
 
         @include mixin.flex-set;
     }
+
+    &__content {
+        gap: func.to-rem(vars.$size-xs);
+        padding: func.to-rem(vars.$size-xs);
+
+        @include mixin.flex-set(unset, unset, column);
+    }
+
+    &__outlet {
+        flex: 1;
+    }
 }
