@@ -1,13 +1,13 @@
 import {
     pizzaPalaceCustomers,
     pizzaPalaceOrders,
-} from '@assets/mock-data/pizzaPalace';
-import { pizzaPalaceMenu } from '@assets/mock-data/pizzaPalace';
+    pizzaPalaceMenu,
+} from '@assets/mock-data/pizza-palace-data';
 import {
     burgerBistroCustomers,
     burgerBistroOrders,
-} from '@assets/mock-data/burgerBistro';
-import { burgerBistroMenu } from '@assets/mock-data/burgerBistro';
+    burgerBistroMenu,
+} from '@assets/mock-data/burger-bistro-data';
 
 export const restaurantData = [
     {

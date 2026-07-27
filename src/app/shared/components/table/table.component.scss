@@ -1,7 +1,15 @@
 @use 'abstracts/mixins' as mixin;
 
 .table {
-    &__data {
+    &__heading {
         text-align: center;
+
+        &--start {
+            text-align: start;
+        }
+
+        &--end {
+            text-align: end;
+        }
     }
 }

@@ -6,7 +6,6 @@
 .dashboard {
     width: 100%;
     height: 100%;
-    padding: func.to-rem(vars.$size-xs);
     gap: func.to-rem(vars.$size-sm);
 
     @include mixin.flex-set(unset, unset, column);
@@ -72,7 +71,7 @@
         }
 
         &--preparing {
-            color: col.$sucess-text;
+            color: col.$success-text;
             background-color: col.$success;
         }
     }

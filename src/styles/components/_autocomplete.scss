@@ -1,0 +1,7 @@
+@use 'abstracts/colors' as col;
+
+.options {
+    --mat-option-focus-state-layer-color: #{col.$active};
+    --mat-option-hover-state-layer-color: #{col.$active};
+    --mat-option-selected-state-layer-color: #{col.$active};
+}

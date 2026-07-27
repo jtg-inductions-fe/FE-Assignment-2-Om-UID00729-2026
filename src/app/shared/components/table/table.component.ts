@@ -6,6 +6,8 @@ import {
     TemplateRef,
 } from '@angular/core';
 import { tableColumnsModel } from './models/tableColumn.model';
+import { HEADING_ALIGNMENTS } from './constants/heading-alignments';
+import { HEADING_ALIGNMENT_CLASS_MAP } from './constants/heading-alignment-class-map';
 
 @Component({
     selector: 'app-table',
@@ -26,5 +28,14 @@ export class TableComponent implements OnInit {
 
     trackByColumns(index: number, column: tableColumnsModel): string {
         return column.key;
+    }
+
+    getHeadingAlignment(
+        headingAlignment: HEADING_ALIGNMENTS | undefined,
+    ): string {
+        if (headingAlignment) {
+            return HEADING_ALIGNMENT_CLASS_MAP[headingAlignment];
+        }
+        return '';
     }
 }

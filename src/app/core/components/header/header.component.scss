@@ -17,6 +17,12 @@
     &__profile-btn {
         border-radius: 50%;
         padding: 0;
+
+        &:hover,
+        &:focus-within {
+            transform: translateY(-4px);
+            box-shadow: vars.$box-shadow;
+        }
     }
 
     &__profile-img {

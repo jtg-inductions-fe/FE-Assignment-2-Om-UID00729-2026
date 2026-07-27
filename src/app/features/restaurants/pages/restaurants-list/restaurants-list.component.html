@@ -21,7 +21,7 @@
 
 <ng-template #chipTemplate let-row>
     <div class="restaurant-list__chips-wrapper">
-        <mat-chip *ngFor="let owner of row.owners; trackby: trackbyOwners">{{
+        <mat-chip *ngFor="let owner of row.owners; trackBy: trackByOwners">{{
             owner
         }}</mat-chip>
     </div>

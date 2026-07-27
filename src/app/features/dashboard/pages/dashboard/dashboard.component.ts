@@ -12,7 +12,7 @@ import { RestaurantDataService } from '@core/services/restaurant-data/restaurant
 import { customersModel } from '@core/models/customers.model';
 import { menuModel } from '@core/models/menu.model';
 import { statModel } from '@core/models/stats.model';
-import { ordersKeys } from '@assets/mock-data/orderTableColumns';
+import { ordersKeys } from './configs/order-column-config';
 import { orderDataModel } from '@features/dashboard/models/orderData.model';
 import { SnackbarService } from '@core/services/snackbar/snackbar.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
