@@ -22,10 +22,7 @@ export class LoginComponent {
 
     loginForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [
-            Validators.required,
-            Validators.minLength(8),
-        ]),
+        password: new FormControl('', [Validators.required]),
     });
 
     loginUser(): void {
@@ -41,7 +38,7 @@ export class LoginComponent {
         const user = this.authService.login(email, password);
 
         if (!user) {
-            this.snackbar.showWarning(LOGIN__MESSAGES.ERROR);
+            this.snackbar.showError(LOGIN__MESSAGES.ERROR);
             this.loginForm.reset();
             return;
         }
@@ -77,10 +74,6 @@ export class LoginComponent {
 
         if (control?.hasError('required')) {
             return FORM_ERROR_MESSAGES.PASSWORD_REQUIRED;
-        }
-
-        if (control?.hasError('minlength')) {
-            return FORM_ERROR_MESSAGES.MIN_LENGTH;
         }
 
         return '';

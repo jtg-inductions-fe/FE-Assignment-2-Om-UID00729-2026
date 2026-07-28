@@ -103,4 +103,12 @@ export class DashboardComponent implements OnInit {
     getStatusClass(status: ORDER_STATUS) {
         return this.statusClassMap[status];
     }
+
+    downloadTopOrders() {
+        // WORK IN PROCESS
+    }
+
+    downloadBoughtTogether() {
+        // WORK IN PROCESS
+    }
 }

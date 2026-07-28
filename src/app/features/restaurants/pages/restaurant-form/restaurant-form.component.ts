@@ -22,6 +22,7 @@ export class RestaurantFormComponent implements OnInit {
     editData = this.router.getCurrentNavigation()?.extras.state?.['data'];
 
     ngOnInit(): void {
+        this.owners = this.editData?.owners ?? [];
         this.restaurantForm = this.formBuilder.group({
             restaurantName: [
                 this.editData?.restaurantName ?? '',
@@ -31,14 +32,20 @@ export class RestaurantFormComponent implements OnInit {
             address: [this.editData?.address ?? '', [Validators.required]],
             email: ['', [Validators.email]],
         });
-        this.owners = this.editData?.owners ?? [];
     }
 
     handleFormSubmit() {
+        const emailControl = this.restaurantForm.get('email');
         if (this.restaurantForm.invalid) {
             this.restaurantForm.markAllAsTouched();
             return;
         }
+        if (!this.owners.length) {
+            emailControl?.setErrors({ required: true });
+            emailControl?.markAsTouched();
+            return;
+        }
+
         this.snackbar.showSuccess(
             this.isEdit
                 ? RESTAURANT_FORM_MESSAGES.SUCCESS_EDIT
