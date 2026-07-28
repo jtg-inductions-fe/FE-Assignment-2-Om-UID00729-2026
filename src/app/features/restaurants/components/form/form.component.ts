@@ -36,6 +36,10 @@ export class FormComponent {
             return FORM_ERROR_MESSAGES.EMAIL_INVALID;
         }
 
+        if (control.hasError('required')) {
+            return FORM_ERROR_MESSAGES.EMAIL_REQUIRED;
+        }
+
         return '';
     }
 
@@ -46,7 +50,7 @@ export class FormComponent {
             return '';
         }
 
-        if (control?.hasError('required')) {
+        if (control.hasError('required')) {
             return FORM_ERROR_MESSAGES.REQUIRED;
         }
         return '';
@@ -56,14 +60,17 @@ export class FormComponent {
         const value = (event.value || '').trim();
         const control = this.restaurantForm.get('email');
 
+        if (!value) {
+            return;
+        }
+
         if (control?.invalid) {
             control.markAsTouched();
             return;
         }
 
-        if (value && this.owners && control?.valid) {
-            this.owners.push(value);
-        }
+        this.owners?.push(value);
+
         event.chipInput.clear();
         control?.reset();
     }

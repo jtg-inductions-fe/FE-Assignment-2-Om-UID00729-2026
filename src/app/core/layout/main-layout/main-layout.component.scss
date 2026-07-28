@@ -19,7 +19,7 @@
 
     &__drawer {
         background-color: col.$background;
-        min-width: func.to-rem(250px);
+        width: func.to-rem(250px);
         border-right: vars.$border-light;
     }
 

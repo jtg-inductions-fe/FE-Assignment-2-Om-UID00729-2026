@@ -76,6 +76,10 @@
         }
     }
 
+    &__table-button {
+        width: 35%;
+    }
+
     @include mixin.respond('desktop-sm') {
         &__stat-container {
             grid-template-columns: repeat(4, 1fr);

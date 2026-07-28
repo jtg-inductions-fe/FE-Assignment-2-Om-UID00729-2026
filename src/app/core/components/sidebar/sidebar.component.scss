@@ -6,15 +6,20 @@
 .sideNav {
     @include mixin.flex-set(center, flex-start, column);
 
-    &__links-container,
+    &__links-container {
+        flex: 1;
+        width: 100%;
+    }
+
     &__link-wrapper {
         flex: 1;
         width: 100%;
-        padding: func.to-rem(6px) func.to-rem(vars.$size-xs);
+        padding: func.to-rem(6px);
     }
 
     &__tree {
         gap: func.to-rem(10px);
+        padding-bottom: func.to-rem(46px);
 
         @include mixin.flex-set(center, flex-start, column);
     }
@@ -25,11 +30,10 @@
     }
 
     &__link {
-        outline-offset: func.to-rem(10px);
         gap: func.to-rem(10px);
         flex: 1;
         text-decoration: none;
-        padding-block: func.to-rem(10px);
+        padding: func.to-rem(10px);
 
         @include mixin.flex-set(flex-start);
 
@@ -41,14 +45,13 @@
 
     &__drop-down-btn {
         width: 100%;
-        outline-offset: func.to-rem(10px);
         background: col.$background;
 
         @include mixin.flex-set(flex-start);
     }
 
     &__nested-link {
-        padding-left: func.to-rem(40px);
+        padding-left: func.to-rem(vars.$size-lg);
         gap: func.to-rem(10px);
 
         @include mixin.flex-set(center, center, column);

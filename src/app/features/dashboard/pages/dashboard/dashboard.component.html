@@ -34,10 +34,12 @@
                 variant="stroked"
                 label="Top 10 Ordered Items"
                 iconLabel="bar_chart"
+                (click)="downloadTopOrders()"
             ></app-button>
             <app-button
                 label="Frequently Bought Together"
                 iconLabel="group_work"
+                (click)="downloadBoughtTogether()"
             ></app-button>
         </div>
     </div>
@@ -89,26 +91,28 @@
 
 <ng-template #buttonTemplate let-row>
     <div class="dashboard__table-button-wrapper">
-        <app-button
-            class="dashboard__table-button"
-            variant="stroked"
-            label="Reject"
-            iconLabel="close"
-            (click)="handleReject(row)"
-        ></app-button>
-        <app-button
-            *ngIf="row.status === orderStatus.PENDING"
-            label="Accept"
-            iconLabel="check"
-            class="dashboard__table-button"
-            (click)="handleAccept(row)"
-        ></app-button>
-        <app-button
-            *ngIf="row.status === orderStatus.PREPARING"
-            label="Complete"
-            iconLabel="alarm"
-            class="dashboard__table-button"
-            (click)="handleComplete(row)"
-        ></app-button>
+        <div class="dashboard__table-button">
+            <app-button
+                color="warn"
+                variant="stroked"
+                label="Reject"
+                iconLabel="close"
+                (click)="handleReject(row)"
+            ></app-button>
+        </div>
+        <div class="dashboard__table-button">
+            <app-button
+                *ngIf="row.status === orderStatus.PENDING"
+                label="Accept"
+                iconLabel="check"
+                (click)="handleAccept(row)"
+            ></app-button>
+            <app-button
+                *ngIf="row.status === orderStatus.PREPARING"
+                label="Complete"
+                iconLabel="alarm"
+                (click)="handleComplete(row)"
+            ></app-button>
+        </div>
     </div>
 </ng-template>

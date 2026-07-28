@@ -12,10 +12,4 @@
 
         @include mixin.flex-set;
     }
-
-    &:hover,
-    &:focus-within {
-        transform: translateY(-4px);
-        box-shadow: vars.$box-shadow;
-    }
 }
